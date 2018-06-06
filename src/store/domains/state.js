@@ -1,5 +1,9 @@
 const state = {
-  data: []
+  data: [],
+  domainSearched: {},
+  prefixes: [],
+  suffixes: [],
+  segments: [],
 }
 
 export default state

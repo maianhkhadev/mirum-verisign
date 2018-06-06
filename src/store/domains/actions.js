@@ -19,9 +19,17 @@ function transform (rawData) {
 
 export function search ({ commit, state }, { name = '' }) {
 
+  axios.get(`/bulk-check?names=${name}&tlds=com&include-registered=true`)
+  .then(function (res) {
+    commit('setDomainSearched', { domain: res.data.results[0] })
+  })
+  .catch(function (error) {
+
+  })
+
   axios.get(`/suggest?name=${name}&tlds=com`)
   .then(function (res) {
-    console.log(res.data)
+
   })
   .catch(function (error) {
 
@@ -29,7 +37,7 @@ export function search ({ commit, state }, { name = '' }) {
 
   axios.get(`/add-prefix?name=${name}&tlds=com&max-results=6`)
   .then(function (res) {
-    console.log(res.data)
+    commit('setPrefixes', { prefixes: res.data.results })
   })
   .catch(function (error) {
 
@@ -37,18 +45,18 @@ export function search ({ commit, state }, { name = '' }) {
 
   axios.get(`/add-suffix?name=${name}&tlds=com&max-results=6`)
   .then(function (res) {
-    console.log(res.data)
+    commit('setSuffixes', { suffixes: res.data.results })
   })
   .catch(function (error) {
 
   })
 
   axios.get(`/segment?name=${name}`)
-  .then(function (res) {
+  .then(function (sasa) {
 
-    axios.get(`/spin-word?name=${res.data.segmentedName.join(',')}&tlds=com`)
-    .then(function (sasa) {
-      console.log(sasa.data)
+    axios.get(`/spin-word?name=${sasa.data.segmentedName.join(',')}&tlds=com`)
+    .then(function (res) {
+      commit('setSegments', { names: res.data.segmentation, domains: res.data.results })
     })
     .catch(function (error1) {
 

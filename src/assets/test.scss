@@ -1,0 +1,1167 @@
+/* Font Imports for Custom Menu */
+@import url('https://pmiandu.com.vn/assets/fonts/css-oswald.css');
+@import url('https://pmiandu.com.vn/assets/fonts/css-roboto.css');
+@import url('https://pmiandu.com.vn/assets/styles/bootstrap.min.css');
+
+/* Start div body */
+.cDTE_CommunityCustomLayout .body {
+    margin-top: 1rem !important;
+}
+/* End div body */
+
+/* navigation bar look - only for desktop version*/
+.cDTE_BaseThemeLayout .capricornNavBar .desktop ul {
+  text-align: right;
+    margin-right: 150px;
+  margin-top: 90px;
+    text-transform: uppercase;
+}
+
+.slds-tabs--default__item:hover {
+  background-color: #0070d2;
+  color: #ffffff !important;
+}
+
+/* header logo look */
+.siteforceNapiliBody .cBrandingLogo {
+    max-height: 150px;
+    margin-left: 80px;
+    margin-right: 50px;
+}
+
+/* header logo look in mobile */
+.slds-grid.slds-wrap.mobileOpen .cBrandingLogo {
+  margin-left: 1px;
+}
+
+/* styling for Health Warning component – NEW approach */
+.cDTE_HealthWarning.healthWarningContainer {
+    background: #ffffff ;
+    border: solid 10px black ;
+    color: black ;
+    padding: 0.5rem 1rem ;
+    text-align: center;
+}
+
+/* Logo image for login pages - starts here
+.cDTE_LoginForm:not(.old-UX) .logo-wrapper div.login-logo,
+.cDTE_ForgotPassword:not(.old-UX) .logo-wrapper div.login-logo,
+.cDTE_SelfRegistration:not(.old-UX) .logo-wrapper div.login-logo { background-image: url('/file-asset/PMI_Logo45?v=1');
+}*/
+/* Logo image for login pages - ends here */
+/* Custom CSS for Login pages and Self Registration (with Base Layout) - starts here */
+html{
+    font-size:16px
+}
+@media screen and (min-width:1200px) and (max-width:1400px){
+    html{
+        font-size:15px
+    }
+}
+@media screen and (min-width:600px) and (max-width:1200px){
+    html{
+        font-size:14px
+    }
+}
+@media screen and (min-width:350px) and (max-width:600px){
+    html{
+        font-size:12px
+    }
+}
+@media screen and (max-width:350px){
+    html{
+        font-size:10px
+    }
+}
+body{
+    background-color:#000;
+}
+.btn-black{
+    background-color:#c6961d;
+}
+.btn-black2{
+    border: none !important;
+    color: #ffffff !important;
+    background-image: -moz-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+    background-image: -webkit-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+    background-image: -ms-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+}
+.btn-black,.btn-black:hover{
+    color:#fff !important;
+    border-color:#c6961d
+}
+.btn-black:hover,.btn-black2:hover{
+    background-color:#836313
+}
+.btn-black.focus,.btn-black:focus,.btn-black2:focus{
+    box-shadow:#836313
+}
+.btn-black-outline{
+    color:#fff !important;
+    background-color:#000;
+    border-color:#c6961d
+}
+.btn-black-outline:hover, .btn-black-outline.active{
+    color:#fff !important;
+    background-color:#c6961d;
+    border-color:#c6961d
+}
+.btn-black-outline.focus,.btn-black-outline:focus{
+    box-shadow:unset
+}
+.cDTE_CommunityCustomLayout .mainContentArea .mirum-header {
+    background-image: url(http://pmiandu.com.vn/assets/images/salesforce/bim.jpg) !important;
+    background-position: center 50px !important;
+    background-repeat: no-repeat;
+    background-size: 140%;
+    padding-top: 9.25rem;
+    z-index: 9;
+    position: relative;
+}
+.cDTE_CommunityCustomLayout .mainContentArea .mirum-header .links{
+    padding-left:.75rem;
+    padding-right:.75rem;
+    margin-bottom:1.5rem;
+    margin-top: 4rem;
+}
+.cDTE_CommunityCustomLayout .mainContentArea .mirum-header .links .link{
+    padding-left:.2rem;
+    padding-right:.2rem
+}
+.cDTE_CommunityCustomLayout .mainContentArea .mirum-header .links .link a{
+    font-size:1rem;
+    font-family:'Oswald', sans-serif;
+    text-transform:uppercase;
+    border-radius:1.75rem
+}
+.cDTE_CommunityCustomLayout .mainContentArea .mirum-header .title-container{
+    position:relative;
+    text-align:center
+}
+.cDTE_CommunityCustomLayout .mainContentArea .mirum-header .title-container:before{
+    left:auto;
+    right:0
+}
+.cDTE_CommunityCustomLayout .mainContentArea .mirum-header .title-container:after,.mirum-header .title-container:before{
+    content:"";
+    position:absolute;
+    top:calc(50% - .125rem);
+    width:calc(50% - 6rem);
+    height:0;
+    border-top:.2rem dotted #d9a41e
+}
+.cDTE_CommunityCustomLayout .mainContentArea .mirum-header .title-container:after{
+    left:0;
+    right:auto
+}
+.cDTE_CommunityCustomLayout .mainContentArea .mirum-header .title-container .title{
+    display:inline-block;
+    color:#d9a41e;
+    font-size:1.2rem;
+    font-family:Roboto;
+    font-weight:700
+}
+.cDTE_CommunityCustomLayout .mainContentArea .main{
+    padding-bottom:.5rem
+}
+.cDTE_CommunityCustomLayout .mainContentArea .main .post{
+    position:relative;
+    padding-top:2rem;
+    padding-bottom:1.25rem;
+    margin-bottom:2.5rem;
+    cursor:pointer
+}
+.cDTE_CommunityCustomLayout .mainContentArea .main .post .icon{
+    top:0;
+    width:4rem
+}
+.main .post .icon,.main .post a{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%)
+}
+.main .post a{
+    bottom: 2.5rem;
+    font-size:1.25rem;
+    font-family:'Oswald', sans-serif;
+    text-transform:uppercase;
+    box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.3);
+    border-radius:3rem;
+    padding:.25rem 3rem
+}
+.main .post a.btn-img{
+  box-shadow: none !important;
+  padding: 0 2rem;
+}
+.socials{
+    background-color: #000000;
+    border-top:.2rem dotted #d9a41e;
+    padding-top:1.25rem;
+    padding-bottom:1.25rem
+}
+.socials .text{
+    color:#fff;
+    font-size:1rem;
+    font-family:Roboto;
+    font-weight:300
+}
+.socials .col-3{
+    padding-left: unset;
+    padding-right: unset;
+}
+.socials .link{
+    color:#fff;
+    font-size:0.625rem;
+    font-family:Roboto;
+    font-weight:300;
+    text-decoration: underline;
+}
+.footer{
+    background:linear-gradient(#1d1d1d,#0a0a0a);
+    border-top:.2rem solid #515253;
+    padding-top:1rem;
+    padding-bottom:1rem
+}
+.footer .text{
+    color:#fff;
+    font-size:1rem;
+    font-family:Roboto;
+    font-weight:300
+}
+/* Start Info */
+.uiTabset--default {
+  background-color: #000000 !important;
+}
+.forceCommunityTabset.uiTabset .uiTabBar .uiTabItem {
+  max-width: 49% !important;
+  min-width: 49% !important;
+  font-family: 'Oswald', sans-serif;
+  padding: 0;
+}
+.uiTabset--default .tabs__nav {
+  border-bottom: 0.1rem solid #212529 !important;
+  margin: 0 -15px 15px -15px !important;
+
+}
+.uiTabset--default .tabs__item > a {
+  border-bottom: 0.1rem solid transparent !important;
+}
+.uiTabset--default .tabs__item > a {
+  text-transform: uppercase !important;
+  font-size: 1.25rem;
+}
+.uiTabset--default .tabs__item.active > a {
+  color: #c6961d !important;
+  border-color: #c6961d !important;
+}
+.forceCommunityTabset .uiTabBar {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+.aboutme--component-title {
+  display: none !important;
+}
+.cDTE_MyDataWidgetComponent .container {
+  box-shadow: unset !important;
+}
+.cDTE_MyDataWidgetComponent .aboutme--component-header .aboutme--edit-icon {
+  margin-top: 1.5rem !important;
+  margin-right: 1.5rem !important;
+}
+.cDTE_MyDataWidgetComponent .aboutme--component-header .aboutme--edit-icon .editAction {
+  color: #ffffff !important;
+}
+.cDTE_MyDataWidgetComponent .aboutme--component-header .aboutme--edit-icon svg {
+  fill: #ffffff !important;
+}
+.cDTE_MyDataWidgetComponent .container .aboutme--section-separator {
+  color: #c6961d !important;
+  background-color: #000000 !important;
+}
+.cDTE_MyDataWidgetComponent .aboutme--user-name {
+  color: #ffffff !important;
+}
+.cDTE_MyDataWidgetComponent .aboutme--section-label {
+  color: #c6961d !important;
+}
+.cDTE_MyDataWidgetComponent .slds-form-element__label {
+  color: #c6961d !important;
+}
+.cDTE_MyDataWidgetComponent .aboutme--personal-address .aboutme--address-details {
+  color: #ffffff !important;
+}
+.cDTE_MyDataWidgetComponent .slds-output {
+  color: #ffffff !important;
+}
+.cDTE_MyDataWidgetComponent .changepassword {
+  color: #ffffff !important;
+}
+.cDTE_MyDataWidgetComponent .changepassword svg {
+  fill: #ffffff !important;
+}
+.uiTabset--default .tabs__content .forceCommunityRichText .uiOutputRichText {
+  /*display: none !important;*/
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+/*company info*/
+
+.comm-page-custom-chinh-sach-bao-mat {
+  padding: 1rem;
+}
+.comm-page-custom-chinh-sach-bao-mat .forceCommunityRichText h1 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.comm-page-custom-thong-tin-cong-ty .cDTE_CommunityCustomLayout .mainContentArea>div>div:nth-child(2)>div {
+  min-height: 630px !important;
+}
+
+.comm-page-custom-thong-tin-cong-ty .forceCommunityRichText h1 {
+  font-size: 2rem;
+}
+.comm-page-custom-thong-tin-cong-ty .forceCommunityRichText p {
+  font-size: 1.25rem;
+}
+.cDTE_Trade_Programs div.slds-notify.comToken {
+  background-image: -moz-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+  background-image: -webkit-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+  background-image: -ms-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+  box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.3);
+  background-color: #000000 !important;
+  color: #c6961d !important;
+  font-size: 1.5rem !important;
+  font-family: 'Oswald' !important;
+  margin-bottom: 2.5rem !important;
+}
+.cDTE_MyDataWidgetComponent .aboutme--action-buttons {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+.cDTE_MyDataWidgetComponent .aboutme--edit-section>.aboutme--section-separator~.aboutme--section-separator {
+  color: #ffffff !important;
+  padding-left: 2.5rem !important;
+}
+.slds span.slds-input {
+  color: #5f5e5e !important;
+  background-color: #262626 !important;
+  border-color: #5f5e5e !important;
+  border-radius: 2rem !important;
+  padding: 0.5rem 1.25rem !important;
+}
+input.uiInput--default {
+  color: #5f5e5e !important;
+  background-color: #262626 !important;
+  border-color: #5f5e5e !important;
+  border-radius: 2rem !important;
+  padding: 0.5rem 1.25rem !important;
+}
+input.uiInput--checkbox[type="checkbox"] {
+  display: inline-block !important;
+}
+.cDTE_MyDataWidgetComponent .slds-form-element__control span {
+  color: #ffffff !important;
+}
+.cDTE_MyDataWidgetComponent select.slds-select, .cDTE_MyDataWidgetComponent select:not([multiple]).select.uiInput--select {
+  color: #5f5e5e !important;
+  background-color: #262626 !important;
+  border-color: #5f5e5e !important;
+  border-radius: 2rem !important;
+}
+.cDTE_MyDataWidgetComponent .aboutme--component-header {
+  display: none !important;
+}
+.cDTE_MyDataWidgetComponent .aboutme--component-header .aboutme--edit-icon .slds-button--brand {
+  background-image: -moz-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+  background-image: -webkit-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+  background-image: -ms-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+  box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.3);
+  background-color: #c6961d !important;
+  border-color: #c6961d !important;
+}
+.cDTE_MyDataWidgetComponent .aboutme--action-buttons .slds-button--brand {
+  display: inline-block;
+  background-image: -moz-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+  background-image: -webkit-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+  background-image: -ms-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+  box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.3);
+  background-color: #c6961d !important;
+  border-color: #c6961d !important;
+}
+.cDTE_MyDataWidgetComponent .aboutme--action-buttons .slds-button--brand.button-secondary {
+  display: inline-block;
+  color: #c6961d !important;
+  background-color: transparent !important;
+  border-color: #c6961d !important;
+}
+.cDTE_MyDataWidgetComponent:not(.old-UX) .slds-form-element {
+  background-color: transparent !important;
+}
+/* End Info */
+
+/* Start Modal */
+.slds-modal__content {
+  background-color: #000000 !important;
+}
+.slds-modal__close .articlePopUpClose {
+  font-size: 2rem;
+}
+.cDTE_ArticleFull.fullArticleContainer {
+  background-color: #000000 !important;
+}
+.cDTE_ArticleFull>div.fullArticleContent>div.carouselContainer {
+  display: none !important;
+}
+.slds-spinner_container {
+  background-color: #000000 !important;
+}
+.cDTE_ArticleFull>div.fullArticleContent>div.completeButton:not(.slds-hide)>button {
+  width: unset !important;
+  color: #fff !important;
+  background-image: -moz-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+  background-image: -webkit-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+  background-image: -ms-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+  box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.3);
+  background-color: #c6961d !important;
+  border-color: #c6961d !important;
+  font-size: 1.2rem !important;
+  font-family: 'Oswald' !important;
+  text-transform: uppercase !important;
+  line-height: 1.2 !important;
+  border-radius: 1.5rem !important;
+  padding: 0.75rem 2.75rem !important;
+  /*margin-top: -36px !important;*/
+  border-style: none !important;
+}
+/* End Modal */
+
+/* Start Article */
+.cDTE_ArticlePreview>div.articlePreviewContainer {
+    background-color: unset !important;
+    border: unset !important;
+    border-radius: unset !important;
+    box-shadow: unset !important;
+    margin-bottom: 1rem !important;
+}
+.cDTE_ArticlePreview>div.articlePreviewContainer .previewContent {
+    display: none !important;
+}
+.cDTE_ArticlePreview>div.articlePreviewContainer.noFlex>div.articlePreviewContent {
+    position: unset !important;
+}
+/* End Article */
+.slds-p-horizontal_medium, .slds-p-horizontal--medium {
+  padding-left: unset !important;
+  padding-right: unset !important;
+}
+.slds-m-top_x-large, .slds-m-top--x-large {
+  margin-top: unset !important;
+}
+.siteforceContentArea .comm-layout-column:not(:empty) {
+  padding-top: unset !important;
+  padding-bottom: unset !important;
+}
+.slds-col_padded, .slds-col--padded {
+  padding-left: unset !important;
+  padding-right: unset !important;
+}
+
+.cDTE_MainMenu>div, .cDTE_MainMenu .menu-menu1 {
+  background-color: #000000 !important;
+}
+.cDTE_MainMenu .menu-menu1>.userInfoMenu {
+  width: 16rem !important;
+}
+.cDTE_MainMenu .userInfoMenu>div:nth-of-type(1) {
+  color: #c6961d;
+  font-family: 'Roboto' !important;
+  text-transform: uppercase !important;
+}
+.cDTE_MainMenu .userInfoMenu>div:nth-of-type(2) {
+  color: #ffffff !important;
+  font-family: 'Roboto' !important;
+}
+.cDTE_MainMenu .mobileMenuIcon>div {
+   background-color:  #ffffff !important;
+}
+.cDTE_MainMenu .activeMobileMenu {
+  background-image: -moz-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+  background-image: -webkit-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+  background-image: -ms-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+  box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.3);
+  background-color: #c6961d !important;
+}
+.cDTE_MainMenu .activeMobileMenu button.slds-button {
+  color: #000000 !important;
+  text-align: right !important;
+  padding-right: 2rem !important;
+}
+.cDTE_MainMenu .activeMobileMenu.isMobileMenuActive .slds-button label {
+  float: unset !important;
+}
+.cDTE_MainMenu .activeMobileMenu>button>.iconInButton {
+  display: none !important;
+}
+
+.slds-tabs--default__item:hover {
+    background-color: #000000 !important;
+ }
+.cDTE_CommunityCustomLayout .mainContentArea>div>div:nth-child(2) {
+  min-height: 400px !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.cDTE_CommunityCustomLayout .mainContentArea>div>div:nth-child(2)>div {
+  margin-top: -36px !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) .wrapper-background {
+  display: none !important;
+}
+.slds-tabs_default, .slds-tabs--default {
+  background-color: transparent !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) .slds-tabs--default__nav .slds-tabs--default__item.slds-active, .cDTE_MyTask_Widget:not(.old-UX) .slds-tabs--default__nav .slds-tabs--default__item.slds-active .slds-tabs--default__link {
+  color: #daa520 !important;
+  border-bottom: 0.125rem solid #e1aa21 !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) .slds-tabs--default__nav .slds-tabs--default__item {
+  width: 33.33% !important;
+  text-align: center !important;
+  margin-left: unset !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) .slds-tabs--default__nav .slds-tabs--default__item+.slds-tabs--default__item {
+  width: 33.33% !important;
+  text-align: center !important;
+  margin-left: unset !important;
+  border-bottom: 0.125rem solid #181818 !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) .slds-tabs--default__nav .slds-tabs--default__item .slds-tabs--default__link {
+  color: #daa520 !important;
+  font-size: 1rem !important;
+  font-family: 'Oswald' !important;
+  text-transform: uppercase !important;
+  line-height: 1.5 !important;
+  height: unset !important;
+  padding: .5rem 1rem !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) .slds-tabs--default__content {
+  padding-top: 1.25rem !important;
+  padding-bottom: 0.5rem !important;
+}
+.cDTE_MyTask_Widget div.slds-box.slds-theme--info.noTaskBox {
+  color: #daa520 !important;
+  background-color: #000000 !important;
+  font-size: 1.5rem !important;
+  font-family: 'Oswald' !important;
+  text-align: center !important;
+  border: unset !important;
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
+}
+.cDTE_MyTask_Widget article.task-card {
+  position: relative !important;
+  background-color: #000000 !important;
+  background-image: url('http://pmiandu.com.vn/assets/images/salesforce/thu-thach/bim.png') !important;
+  background-position: top center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  border: unset !important;
+  padding: 0 1.25rem !important;
+  margin-top: 2rem !important;
+  margin-bottom: 2rem !important;
+}
+.cDTE_MyTask_Widget article.task-card .cardContent .taskImage {
+  overflow: hidden !important;
+}
+.cDTE_MyTask_Widget article.task-card>div.cardContent>div.taskImage>img {
+    height: auto !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) article.task-card>div.cardContent>div:nth-child(2) {
+  display: none !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) div.assgined-label {
+  display: none !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) article.task-card>div.cardContent>div.mainContent .slds-card__header .touchpoint-label {
+  display: none !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) h2.taskName {
+  color: #ffffff !important;
+  font-size: 1.25rem !important;
+  font-family: 'Roboto' !important;
+  text-align: center !important;
+  margin-bottom: 0.5rem !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) div.task-body {
+  color: #ffffff !important;
+  font-size: 1rem !important;
+  font-family: 'Roboto' !important;
+  text-align: center !important;
+  padding: unset !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) .start-task--container {
+  display: none !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) .start-task--container .start-task--label {
+  color: #fff !important;
+  background-image: -moz-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+  background-image: -webkit-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+  background-image: -ms-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+  box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.3);
+  background-color: #c6961d !important;
+  border-color: #c6961d !important;
+  font-size: 1.25rem !important;
+  font-family: 'Oswald' !important;
+  text-transform: uppercase !important;
+  border-radius: 3rem !important;
+  padding: 0.5rem 3rem !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) article.task-card>div.cardContent>div:last-child.slds-card__footer {
+  display: none !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) article.slds-card.taskPopUpCard {
+  background: rgba(0, 0, 0, 0.5) !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) article.slds-card div.buttonContainer {
+  background-color: transparent !important;
+  padding: 0!important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) article.slds-card div.buttonContainer .back-arrow--icon {
+  display: none !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) article.slds-card div.buttonContainer .all-tasks--label {
+  /*color: #fff !important; */
+  background-image: -moz-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+  background-image: url('http://pmiandu.com.vn/assets/images/salesforce/home/icon-left-arrow.png') !important;
+  /*background-image: -ms-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);*/
+  background-position: left !important;
+  background-repeat: no-repeat!important;
+  background-color: initial !important;
+  /* border-color: #c6961d !important; */
+  font-size: 1.25rem !important;
+  font-family: 'Oswald' !important;
+  font-size: 1.25rem !important;
+  background-size: 1.5rem !important;
+  /* text-transform: uppercase !important; */
+  /* border-radius: 1.5rem !important; */
+  padding: 0.75rem 30px !important;
+  margin-left: 15px;
+}
+.cDTE_MyTask_Widget:not(.old-UX) article.slds-card .task-header--upper-content {
+  display: none !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) article.slds-card .task-header--description {
+  display: none !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) article.taskQuestion {
+  border: 0.1rem solid #c6961d !important;
+  border-radius: 1.25rem !important;
+  padding-top: 2rem !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+  margin-top: 4rem !important;
+  margin-bottom: 2rem !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) article.taskQuestion:before {
+  content: '';
+  background-image: url('http://pmiandu.com.vn/assets/images/salesforce/thu-thach/icon-03.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 5rem;
+  height: 5rem;
+  position: absolute;
+  top: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.cDTE_MyTask_Widget:not(.old-UX) article.taskQuestion .questionPart {
+  color: #ffffff !important;
+}
+.cDTE_MyTask_Widget .customTaskRadioLabel {
+  margin-top: 0.2rem !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) article.taskQuestion div.questionNumber>h3 {
+  display: none !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) article.taskQuestion .questionPart .question--header-text {
+  color: #c6961d !important;
+  background-color: #000000 !important;
+  font-size: 1.8rem !important;
+  font-family: 'Roboto' !important;
+  font-weight: 400 !important;
+  line-height: 1.3  !important;
+  text-align: left !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) article.taskQuestion div.questionOptions {
+  font-size: 1.5rem !important;
+  line-height: 1.5rem !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) article.taskQuestion div.questionOptions .sldc {
+  background-color: #000000 !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) article.taskQuestion div.questionOptions input.fileUploadInput+label {
+  background-color: #000000 !important;
+}
+
+.cDTE_MyTask_Widget:not(.old-UX) article.taskQuestion div.questionOptions input.fileUploadInput+label>span:last-child {
+  color: #545454 !important;
+  background-color: #191919 !important;
+  border-color: #191919 !important;
+  font-size: 1.25rem !important;
+  font-family: 'Oswald' !important;
+  text-transform: uppercase !important;
+  border-radius: 1.5rem !important;
+  padding: 0.75rem 2.75rem !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) article.taskQuestion div.questionOptions input.fileUploadInput+label>span:last-child span {
+  color: #545454 !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) div.slds-card__footer.buttonFooter:not(.slds-hide) {
+  justify-content: center !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) .buttonFooter .slds-button--neutral {
+  color: #fff !important;
+  background-image: -moz-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+  background-image: -webkit-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+  background-image: -ms-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+  box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.3);
+  background-color: #c6961d !important;
+  border-color: #c6961d !important;
+  font-size: 1.25rem !important;
+  font-family: 'Oswald' !important;
+  text-transform: uppercase !important;
+  border-radius: 1.5rem !important;
+  padding: 0.75rem 2.75rem !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) .buttonFooter .slds-button--neutral:focus {
+  box-shadow: #c6961d !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) article.taskPopUpCard .slds-card__body {
+  text-align: center !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) article.taskDecline .submit-header--text .slds-text-heading--small {
+  color: #c6961d !important;
+  font-family: 'Roboto' !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) article.taskPopUpCard .submit-header--text~.slds-card__body {
+  color: #ffffff !important;
+  background-color: transparent !important;
+  font-family: 'Roboto' !important;
+  padding-left: 0 !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) article.taskDecline~div.declineButtons {
+  margin-bottom: 20vh !important;
+  justify-content: center !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) button.reject-task {
+  color: #545454 !important;
+  background-color: #191919 !important;
+  border-color: #191919 !important;
+  font-size: 1.25rem !important;
+  font-family: 'Oswald' !important;
+  text-transform: uppercase !important;
+  border-radius: 1.5rem !important;
+  padding: 0.75rem 2.75rem !important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) button.submit-task {
+  color: #fff !important;
+  background-image: -moz-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+  background-image: -webkit-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+  background-image: -ms-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+  box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.3);
+  background-color: #c6961d !important;
+  border-color: #c6961d !important;
+  font-size: 1.25rem !important;
+  font-family: 'Oswald' !important;
+  text-transform: uppercase !important;
+  border-radius: 1.5rem !important;
+  padding: 0.75rem 2.75rem !important;
+}
+
+.cDTE_BaseThemeLayout .cDTE_LoginForm:not(.old-UX) .login-box_container div.login-background,
+.cDTE_BaseThemeLayout .cDTE_ForgotPassword:not(.old-UX) div.login-background,
+.cDTE_BaseThemeLayout .cDTE_SelfRegistration:not(.old-UX) div.login-background { background-image: url('/file-asset/backgorund89337277?v=1');
+}
+.cDTE_BaseThemeLayout.ios-app .cDTE_ForgotPassword:not(.old-UX) .logo-wrapper,
+.cDTE_BaseThemeLayout.ios-app .cDTE_SelfRegistration:not(.old-UX) .logo-wrapper {
+top: 24px;
+}
+@media only screen and (min-width: 48em) {
+.cDTE_BaseThemeLayout.ios-app .cDTE_LoginForm:not(.old-UX) .logo-wrapper {
+top: 20px;
+}
+}
+/* Custom CSS for Login pages and Self Registration (with Base Layout) - ends here */
+/* Custom CSS for Login pages and Self Registration (with Login Layout) - starts here */
+
+.salesforceIdentityLoginBody2 div.cCenterPanel {
+margin:0;
+max-width: none;
+position: static;
+width: 100%;
+}
+.salesforceIdentityLoginBody2 div.cCenterPanel:before {
+bottom: 0;
+left: 0;
+margin: 0;
+padding: 0;
+right: 0;
+top: 0;
+}
+/* Custom CSS for Login pages and Self Registration (with Login Layout) - ends here */
+
+
+.salesforceIdentityLoginBody2 {
+  background-color: #000000 !important;
+  background-image: url('http://pmiandu.com.vn/assets/images/salesforce/login-bim.jpg') !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+.cDTE_LoginForm:not(.old-UX) {
+  margin: unset !important;
+  top: unset !important;
+}
+.cDTE_LoginForm:not(.old-UX) .register_wrapper {
+  display: none !important;
+}
+.salesforceIdentityLoginBody2 .cCenterPanel {
+  background-color: transparent !important;
+  margin-top: unset !important;
+  margin-bottom: unset !important;
+}
+.salesforceIdentityLoginBody2 .cCenterPanel:before {
+  content: unset !important;
+}
+.cDTE_LoginForm:not(.old-UX) .login-box_container {
+  padding-top: 1rem !important;
+  padding-bottom: unset !important;
+}
+.salesforceIdentityLoginBody2 .ui-widget {
+  padding-top: unset !important;
+  padding-bottom: unset !important;
+}
+.cDTE_LoginForm:not(.old-UX) .widget-window {
+  padding: 1.25rem 0 !important;
+  background-color: transparent !important;
+}
+
+.cDTE_LoginForm:not(.old-UX) .logo-wrapper {
+  background-color: transparent !important;
+  text-align: center !important;
+  padding-top: 2rem !important;
+}
+.cDTE_LoginForm:not(.old-UX) .logo-wrapper .login-logo {
+  width: 5rem !important;
+  height: 5rem !important;
+}
+.cDTE_LoginForm:not(.old-UX) .widget-window .login {
+  display: none !important;
+}
+.cDTE_LoginForm:not(.old-UX) .widget-window .slds-form-element {
+  background-color: transparent !important;
+}
+.cDTE_LoginForm:not(.old-UX) .widget-window .slds-form-element .slds-form-element__control .slds-input {
+  color: #ffffff !important;
+  background-color: #000000 !important;
+  border: 0.0625rem solid #c6961d !important;
+  border-radius: 2rem !important;
+  padding: 0.5rem 1.25rem !important;
+}
+
+.cDTE_LoginForm:not(.old-UX) .widget-window .rememberMe .slds-form-element__control {
+  background-color: #000000 !important;
+}
+.cDTE_LoginForm:not(.old-UX) .widget-window .rememberMe .slds-checkbox {
+  text-align: center!important;
+  padding: 0.75rem 0 0 !important;
+}
+
+.cDTE_LoginForm:not(.old-UX) .widget-window .slds-form-element .slds-checkbox input[type=checkbox]:checked~.slds-checkbox__label .slds-form-element__label {
+  display: inline-block !important;
+  color: #ffffff !important;
+  padding-left: unset !important;
+}
+.cDTE_LoginForm:not(.old-UX) .widget-window .slds-form-element .slds-checkbox input[type=checkbox]:checked~.slds-checkbox__label .slds-form-element__label span a {
+  color: #ffffff !important;
+}
+
+.cDTE_LoginForm:not(.old-UX) .widget-window .widget-buttons {
+  text-align: center !important;
+}
+.cDTE_LoginForm:not(.old-UX) .widget-window .widget-buttons .slds-button--brand,
+.cDTE_ForgotPassword:not(.old-UX) .widget-window .slds-button--brand, .cDTE_ForgotPassword:not(.old-UX) .widget-window .slds-button--brand:hover, .cDTE_ForgotPassword:not(.old-UX) .widget-window .slds-button--brand:focus, .cDTE_ForgotPassword:not(.old-UX) .widget-window .slds-button--brand:active {
+  max-width: 100% !important;
+  float: unset !important;
+  color: #fff !important;
+  background-image: -moz-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+  background-image: -webkit-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+  background-image: -ms-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%);
+  box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.3);
+  background-color: #c6961d !important;
+  border-color: #c6961d !important;
+  font-size: 0.875rem !important;
+  font-family: 'Oswald' !important;
+  text-transform: uppercase !important;
+  line-height: 1.2 !important;
+  border-radius: 1.5rem !important;
+  padding: 0.75rem 2.75rem !important;
+}
+
+.cDTE_LoginForm:not(.old-UX) .widget-window .footer_tandc {
+  text-align: center !important;
+  padding-top: 4rem !important;
+  padding-bottom: 2rem !important;
+}
+.cDTE_LoginForm:not(.old-UX) .widget-window .footer_tandc>div {
+  display: block !important;
+  margin-left: unset !important;
+}
+.cDTE_LoginForm:not(.old-UX) .widget-window .footer_tandc a {
+  color: #ffffff !important;
+  font-size: 0.625rem !important;
+  text-transform: uppercase;
+}/**/
+
+.cDTE_ArticlePreview:not(.old-UX)>div.articlePreviewContainer {
+  margin-top: unset !important;
+  margin-bottom: 2.5rem !important;
+}
+.uiInput--default select, select.uiInput--default {
+    background-color: black !important;
+    border-color: #a77d2c !important;
+}
+
+.cDTE_MyTask_Widget:not(.old-UX) div.successMessage {
+  background: none!important;
+  border: none!important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) div.successMessage p {
+  font-size: 1.5rem!important;
+  color: #c6961d!important;
+}
+.cDTE_MyTask_Widget:not(.old-UX) div.successMessage p.slds-float--right {
+  font-size: 2rem!important;
+}
+.cDTE_MyTask_Widget div.paginationBtnsContainer {
+  margin-bottom: 15px;
+}
+.cDTE_MyTask_Widget .slds-button.slds-button--neutral {
+  color: #ffffff;
+  border: none !important;
+  color: #ffffff !important;
+  background-image: -moz-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%) !important;
+  background-image: -webkit-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%) !important;
+  background-image: -ms-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%) !important;
+  border-radius: 15px !important;
+  font-size: 1.5rem !important;
+  font-family: 'Oswald', sans-serif !important;
+  padding: 5px !important;
+}
+.cDTE_MyTask_Widget button.paginationBtn span {
+  border-color: white !important;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 5px !important;
+}
+
+.cDTE_Transaction_List:not(.old-UX) .trade-program--info {
+  display: none !important;
+}
+.cDTE_Transaction_List:not(.old-UX) .transaction-list--heading {
+  display: none !important;
+}
+.cDTE_Transaction_List:not(.old-UX) .sorted-by {
+  margin: 2rem 1rem 0 !important;
+}
+.cDTE_Transaction_List:not(.old-UX) .sorted-by>span:first-child {
+  color: #c6961d !important;
+}
+.cDTE_Transaction_List:not(.old-UX) .sorted-by>div.sorted-form .slds-form-element .slds-select {
+  color: #ffffff !important;
+}
+.cDTE_Transaction_List:not(.old-UX) .transactions-table {
+  width: calc(100% - 3rem) !important;
+  background-color: #000000 !important;
+  margin: 3rem 1rem !important;
+}
+.cDTE_Transaction_List:not(.old-UX) .transactions-table thead {
+  border-bottom: 0.125rem solid #c6961d !important;
+  margin-bottom: 2rem !important;
+}
+.cDTE_Transaction_List:not(.old-UX) .transactions-table.slds-table th {
+  color: #c6961d !important;
+  background-color: #000000 !important;
+  font-size: 1rem !important;
+  font-family: 'Roboto' !important;
+}
+.cDTE_Transaction_List:not(.old-UX) .transactions-table .reason-type--icon .fallback-icon {
+  display: none !important;
+}
+.cDTE_Transaction_List:not(.old-UX) .transactions-table .field--date {
+  color: #ffffff !important;
+  font-size: 1rem !important;
+  font-family: 'Roboto' !important;
+}
+.cDTE_Transaction_List:not(.old-UX) .transactions-table .field--date .showInBold {
+  margin-left: -1.25rem !important;
+}
+.cDTE_Transaction_List:not(.old-UX) .transactions-table .pointColumn {
+  font-size: 1rem !important;
+  font-family: 'Roboto' !important;
+  text-align: center !important;
+}
+.cDTE_Transaction_List:not(.old-UX) .transactions-table .field--reason-type {
+  color: #c6961d !important;
+  font-size: 1.25rem !important;
+  font-family: 'Roboto' !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+}
+.cDTE_Transaction_List:not(.old-UX) .transactions-table .field--description {
+  color: #ffffff !important;
+  font-size: 1.25rem !important;
+  font-family: 'Roboto' !important;
+}
+.cDTE_MyDataWidgetComponent:not(.old-UX) .slds-output a {
+  color: #ffffff !important
+}
+.cDTE_MyDataWidgetComponent:not(.old-UX) .container .aboutme--section-separator .aboutme--section-title {
+  color: #c6961d !important;
+}
+.cDTE_MyDataWidgetComponent:not(.old-UX) .uiInput--checkbox input, .cDTE_MyDataWidgetComponent:not(.old-UX) input.uiInput--checkbox[type=checkbox] {
+  border-radius: 0 !important;
+  padding: 0px !important;
+}
+.cDTE_Transaction_List:not(.old-UX) .transactions-table.slds-table tr.desktopHidden td {
+  border-bottom: 1px #c6961d solid;
+}
+
+.cDTE_MyDataWidgetComponent:not(.old-UX) .aboutme--additional-details .slds-output {
+  display: inline !important;
+}
+
+.slds .slds-show {
+  margin: 1.25rem 15px !important;
+}
+.cDTE_Trade_Programs:not(.old-UX) .trade-program--heading {
+  display: none !important;
+}
+.cDTE_Trade_Programs:not(.old-UX) div.slds-grid.comToken>div.slds-col>div.slds-grid {
+  background-color: #000000 !important;
+}
+.cDTE_Trade_Programs:not(.old-UX):not(.old-UX) div.slds-grid.comToken>div.slds-col .card-bottom {
+  background-color: #000000 !important;
+}
+.cDTE_Trade_Programs:not(.old-UX) div.slds-grid.comToken>div.slds-col>div.slds-grid>div:last-child .tpName+div {
+  color: #c6961d !important;
+}
+.cDTE_Trade_Programs:not(.old-UX):not(.old-UX) div.slds-grid.comToken>div.slds-col .card-bottom {
+  text-align: unset !important;
+  border: unset !important;
+  padding: 1rem 1rem 2rem 68px !important;
+}
+.cDTE_Trade_Programs:not(.old-UX):not(.old-UX) div.slds-grid.comToken>div.slds-col .card-bottom .slds-button {
+  color: #ffffff !important;
+  border: none !important;
+  color: #ffffff !important;
+  background-image: -moz-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%) !important;
+  background-image: -webkit-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%) !important;
+  background-image: -ms-linear-gradient( 90deg, rgb(221,177,90) 0%, rgb(163,121,40) 100%) !important;
+  border-radius: 15px !important;
+  font-size: 1rem !important;
+  font-family: 'Oswald', sans-serif !important;
+  padding: 0.25rem 0.5rem !important;
+}
+/*.comm-page-custom-kien-thuc .ui-widget {
+  margin-left: 15px;
+  margin-right: 15px;
+  border-radius: 5px;
+  border: 1px #c6961d solid;
+  overflow: hidden;
+}*/
+
+/*forgot password*/
+
+.comm-page-forgot-password .forceCommunityRichText {display: none !important;}
+
+.cDTE_ForgotPassword:not(.old-UX) .widget-window {
+  background: #000000 !important;
+  border: 1px #c6961d solid;
+  border-radius: 5px;
+  margin: 40px 15px !important;
+  max-width: 100% !important;
+}
+.cDTE_ForgotPassword:not(.old-UX) .widget-window .slds-input {
+  color: #ffffff !important;
+  background-color: #000000 !important;
+  border: 0.0625rem solid #c6961d !important;
+  border-radius: 2rem !important;
+  padding: 0.5rem 1.25rem !important;
+}
+
+ .cDTE_ForgotPassword:not(.old-UX) .widget-window h1 {
+  color: #c6961d !important;
+  font-size: 2rem !important;
+ }
+
+ .cDTE_ForgotPassword:not(.old-UX) .widget-window .slds-box {
+  color: #FFFFFF !important;
+  padding: 20px 0 !important;
+ }
+.cDTE_ForgotPassword:not(.old-UX) .widget-window form button {
+  color: #FFFFFF !important;
+ }
+
+ .cDTE_ForgotPassword:not(.old-UX) .widget-window .slds-form-element,
+ .cDTE_ForgotPassword:not(.old-UX) .logo-wrapper {
+  background-color: #000000 !important;
+ }
+ .cDTE_ForgotPassword:not(.old-UX) .logo-wrapper .login-logo {
+  width: 46px !important;
+  margin: 0 auto;
+  display: block !important;
+ }
+ .cDTE_MainMenu .menu-logo {
+  background-image: url(http://pmiandu.com.vn/assets/images/logo-150.png)!important;
+  background-size: auto 40px!important;
+  background-repeat: no-repeat!important;
+  width: 60px!important;
+  height: 60px!important;
+  left: 15px!important;
+ }
+
+.cDTE_MyTask_Widget .slds-modal__header {
+    background: none !important;
+    color: #c6961d !important;
+    font-size: 1.5rem!important;
+}
+
+/*button in trade program my history*/
+.cDTE_Trade_Programs:not(.old-UX) .back-arrow-label .back-button-label {
+  background: #c6961d!important;
+  border-radius: 15px!important;
+}
+.cDTE_Trade_Programs:not(.old-UX) .back-arrow-label .slds-icon {
+  fill: #c6961d!important;
+}
+
+.comm-page-login-home {
+  min-height: 670px !important;
+}
+.login-note {
+  color: #999ea3 !important;
+  font-size: 0.625rem !important;
+  text-align: center;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  left: auto;
+  width: 100%;
+  display: block;
+}
+.salesforceIdentityLoginBody2 .cFooterPanel {
+  position: absolute !important;
+}
