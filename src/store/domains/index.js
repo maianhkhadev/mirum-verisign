@@ -1,13 +1,12 @@
+import Vue from 'vue'
 import * as actions from './actions'
 import * as getters from './getters'
 import state from './state'
 
 const mutations = {
-  setData (state, { data }) {
-    state.data = data
-  },
-  setDomainSearched (state, { domain }) {
-    state.domainSearched = domain
+  setDomainSearched (state, { name, availability }) {
+    Vue.set(state.domainSearched, 'name', name)
+    Vue.set(state.domainSearched, 'availability', availability)
   },
   setPrefixes (state, { prefixes }) {
     state.prefixes = prefixes

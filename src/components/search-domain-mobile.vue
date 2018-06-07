@@ -22,46 +22,44 @@
     <div class="block-content" v-if="searchStatus === 2">
       <div class="domain-selected">
         <div class="row">
-          <div class="col-xl-8 align-self-center">
-            <span class="message">
-              Tên miền
+          <div class="col-12">
+            <div class="message">
+              Xin chúc mừng! Tên miền
               <span class="name">{{ domainSelected.name }}</span>
               <span v-if="domainSelected.availability !== 'available'">không </span>
               khả dụng
-            </span>
+            </div>
           </div>
-          <div class="col-xl-4">
-            <button class="btn btn-blue btn-block" v-if="domainSelected.availability === 'available'">Đăng ký ngay</button>
+          <div class="col-8 mx-auto">
+            <button class="btn btn-blue" v-if="domainSelected.availability === 'available'">Đăng ký ngay</button>
           </div>
         </div>
       </div>
-      <div class="columns">
-        <div class="column first-column">
-          <div class="column-header">Thêm tiền tố</div>
-          <div class="column-content">
+      <div class="lines">
+        <div class="line">
+          <div class="line-header">Thêm tiền tố</div>
+          <div class="line-content">
             <template v-for="domain in prefixes">
-              <div class="word" v-bind:key="domain.name" v-on:click="selectDomain(domain)">{{ domain.token }}</div>
+              <span class="word" v-bind:key="domain.name" v-on:click="selectDomain(domain)">{{ domain.token }}</span>
             </template>
           </div>
         </div>
-        <div class="column middle-column">
-          <div class="column" v-for="segment in segments" v-bind:key="segment.name">
-            <div class="column-header">
-              {{ segment.name }}
-              <a class="delete" href="#">Xoá</a>
-            </div>
-            <div class="column-content">
-              <template v-for="domain in segment.domains">
-                <div class="word" v-bind:key="domain.name" v-on:click="selectDomain(domain)">{{ domain.token }}</div>
-              </template>
-            </div>
+        <div class="line" v-for="segment in segments" v-bind:key="segment.name">
+          <div class="line-header">
+            {{ segment.name }}
+            <a class="delete" href="#">Xoá</a>
+          </div>
+          <div class="line-content">
+            <template v-for="domain in segment.domains">
+              <span class="word" v-bind:key="domain.name" v-on:click="selectDomain(domain)">{{ domain.token }}</span>
+            </template>
           </div>
         </div>
-        <div class="column last-column">
-          <div class="column-header">Thêm hậu tố</div>
-          <div class="column-content">
+        <div class="line">
+          <div class="line-header">Thêm hậu tố</div>
+          <div class="line-content">
             <template v-for="domain in suffixes">
-              <div class="word" v-bind:key="domain.name" v-on:click="selectDomain(domain)">{{ domain.token }}</div>
+              <span class="word" v-bind:key="domain.name" v-on:click="selectDomain(domain)">{{ domain.token }}</span>
             </template>
           </div>
         </div>
@@ -154,14 +152,20 @@
   .block {
     position: relative;
     background-color: #ffffff;
-    border-radius: 4rem;
+    border-radius: 1.25rem;
     box-shadow: 0 0.5rem 4rem 0 rgba(#000000, 0.05);
     padding: 2.5rem;
     margin-top: -12rem;
     margin-bottom: 5rem;
 
+    @media screen and (max-width: 600px) {
+      padding: 2.5rem 1.429rem;
+      margin-top: 1.538rem;
+      margin-left: -5px;
+      margin-right: -5px;
+    }
+
     .block-header {
-      padding: 1.25rem 7.25rem;
 
       .title {
         color: #0061a3;
@@ -171,6 +175,10 @@
         text-transform: uppercase;
         letter-spacing: 0.25rem;
         margin-bottom: 2.5rem;
+
+        @media screen and (max-width: 600px) {
+          font-size: 1rem;
+        }
       }
       .form-group {
         position: relative;
@@ -181,13 +189,21 @@
           top: 50%;
           right: 15rem;
           transform: translateY(-50%);
+          line-height: 1;
+
+          @media screen and (max-width: 600px) {
+            right: 5rem;
+            font-size: 1rem;
+          }
 
           .icon {
             width: 1.25rem;
-            margin-top: -0.25rem;
-            margin-left: 1.5rem;
             opacity: 0.5;
             animation: load 1s linear infinite;
+
+            @media screen and (max-width: 600px) {
+              width: 1rem;
+            }
           }
 
           @keyframes load {
@@ -200,12 +216,20 @@
           top: 50%;
           right: 15rem;
           transform: translateY(-50%);
+          line-height: 1;
+
+          @media screen and (max-width: 600px) {
+            right: 5rem;
+            font-size: 1rem;
+          }
 
           .icon {
             width: 1.25rem;
-            margin-top: -0.25rem;
-            margin-left: 1.5rem;
             opacity: 0.5;
+
+            @media screen and (max-width: 600px) {
+              width: 1rem;
+            }
           }
 
           &:hover {
@@ -222,32 +246,50 @@
           border-left: 0.0625rem solid #97d4f7;
           padding: 1.125rem 3rem 1.25rem;
 
+          @media screen and (max-width: 600px) {
+            padding: 0.625rem 1rem;
+          }
+
           .com {
             color: #707070;
             font-size: 1.75rem;
             font-weight: 700;
+
+            @media screen and (max-width: 600px) {
+              font-size: 1rem;
+            }
           }
           .icon {
             width: 2rem;
             margin-top: -0.5rem;
             margin-left: 1.5rem;
+
+            @media screen and (max-width: 600px) {
+              display: none;
+            }
           }
         }
-      }
-      input {
-        color: #97d4f7;
-        font-size: 1.25rem;
-        font-weight: 700;
-        border-color: #97d4f7;
-        border-radius: 2.5rem;
-        padding: 1.5rem 15rem 1.5rem 3.75rem;
 
-        &::placeholder {
-          color: rgba(#97d4f7, 0.75);
+        input {
+          color: #97d4f7;
+          font-size: 1.25rem;
+          font-weight: 700;
+          border-color: #97d4f7;
+          border-radius: 2.5rem;
+          padding: 1.5rem 15rem 1.5rem 3.75rem;
+
+          &::placeholder {
+            color: rgba(#97d4f7, 0.75);
+          }
+
+          @media screen and (max-width: 600px) {
+            font-size: 1rem;
+            padding: 0.625rem 6rem 0.625rem 1.429rem;
+          }
         }
-      }
-      .hidden {
-        display: none;
+        .hidden {
+          display: none;
+        }
       }
     }
 
@@ -256,98 +298,56 @@
       padding-bottom: 2.5rem;
 
       .domain-selected {
-        padding-left: 9rem;
-        padding-right: 9rem;
         margin-bottom: 2.5rem;
 
         .message {
           color: #00a0e1;
-          font-size: 1.25rem;
-          line-height: 1.45;
+          font-size: 1rem;
+          text-align: center;
+          margin-bottom: 1.429rem;
 
           .name {
             font-weight: 700;
           }
         }
         button {
-          font-size: 1.25rem;
+          font-size: 1rem;
           font-weight: 700;
           border-radius: 2rem;
-          padding: 0.75rem 3rem;
+          padding: 0.5rem 3rem;
         }
       }
-      .domain-name {
-        color: #000000;
-      }
 
-      .columns {
-       display: flex;
-       flex-direction: row;
-       border: 0.125rem solid #99d4f5;
-       border-radius: 1.875rem;
-       overflow: hidden;
+      .lines {
 
-       .column {
+        .line {
 
-         .column-header {
-           position: relative;
-           color: #0061a3;
-           background-color: #ededed;
-           font-size: 1rem;
-           font-weight: 700;
-           text-align: center;
-           padding-top: 1.25rem;
-           padding-bottom: 1.25rem;
+          .line-header {
+            color: #005fa5;
+            font-size: 1.071rem;
+            font-weight: 700;
+            margin-bottom: 1.429rem;
+          }
+          .line-content {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
 
-           .delete {
-             position: absolute;
-             top: 0.5rem;
-             right: 0.5rem;
-             color: #b2b2b2;
-             font-size: 0.875rem;
-             font-weight: 700;
-           }
-         }
-         .column-content {
+            .word {
+              display: inline-block;
+              color: #00559d;
+              background-color: #99d4f5;
+              font-size: 1rem;
+              font-weight: 700;
+              padding: 0.75rem 2rem;
+              margin-right: 0.125rem;
 
-           .word {
-             color: #00a1de;
-             font-size: 1.125rem;
-             font-weight: 700;
-             text-align: center;
-             padding-top: 0.75rem;
-             padding-bottom: 0.75rem;
-             cursor: pointer;
-           }
-         }
-       }
-       .first-column, .last-column {
-         width: 25%;
-       }
-       .first-column {
-         border-right: 0.0625rem dashed #99d4f5;
-       }
-       .last-column {
-         border-left: 0.0625rem dashed #99d4f5;
-       }
-       .middle-column {
-         width: 50%;
-         display: flex;
-          flex-wrap: nowrap;
-          overflow-x: auto;
-          -webkit-overflow-scrolling: touch;
-          -ms-overflow-style: -ms-autohiding-scrollbar;
-
-         .column {
-           flex: 0 0 auto;
-           width: 50%;
-           border-left: 0.0625rem dashed #99d4f5;
-
-           &:first-child {
-             border-left: unset;
-           }
-         }
-       }
+              &:last-child {
+                margin-right: unset;
+              }
+            }
+          }
+        }
       }
     }
   }

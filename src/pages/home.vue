@@ -3,7 +3,8 @@
     <section-01></section-01>
 
     <div class="container">
-      <search-domain></search-domain>
+      <search-domain class="d-none d-xl-block"></search-domain>
+      <search-domain-mobile class="d-block d-xl-none"></search-domain-mobile>
     </div>
 
     <section-02></section-02>
@@ -30,6 +31,7 @@
   import Section06 from '@/sections/home/section-06'
   import Section07 from '@/sections/home/section-07'
   import SearchDomain from '@/components/search-domain'
+  import SearchDomainMobile from '@/components/search-domain-mobile'
 
   export default {
     data () {
@@ -45,7 +47,8 @@
       'section-05': Section05,
       'section-06': Section06,
       'section-07': Section07,
-      'search-domain': SearchDomain
+      'search-domain': SearchDomain,
+      'search-domain-mobile': SearchDomainMobile
     }
   }
 </script>

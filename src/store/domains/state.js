@@ -1,6 +1,8 @@
 const state = {
-  data: [],
-  domainSearched: {},
+  domainSearched: {
+    name: '',
+    availability: ''
+  },
   prefixes: [],
   suffixes: [],
   segments: [],

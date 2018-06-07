@@ -21,7 +21,7 @@ export function search ({ commit, state }, { name = '' }) {
 
   axios.get(`/bulk-check?names=${name}&tlds=com&include-registered=true`)
   .then(function (res) {
-    commit('setDomainSearched', { domain: res.data.results[0] })
+    commit('setDomainSearched', res.data.results[0])
   })
   .catch(function (error) {
 

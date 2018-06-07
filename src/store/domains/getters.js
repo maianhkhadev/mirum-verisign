@@ -1,6 +1,5 @@
 export const getDomainSearched = (state) => {
-  debugger
-  return state.domainSearched
+  return { name: state.domainSearched.name, availability: state.domainSearched.availability }
 }
 
 export const getPrefixes = (state) => {
