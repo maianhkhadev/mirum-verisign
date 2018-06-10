@@ -2,24 +2,28 @@
   <section>
     <div class="container">
       <div class="section-content">
-        <div class="section-title">Làm thế nào để đăng ký tên miền <span class="com">.com</span>?</div>
+        <div class="row">
+          <div class="col-xl-12 col-11 mx-auto">
+            <div class="section-title">Làm thế nào để đăng ký tên miền <span class="com">.com</span>?</div>
+          </div>
+        </div>
 
         <div class="row">
-          <div class="col-xl-4 col-9 mx-auto">
+          <div class="col-xl-4 col-md-6 col-10 mx-auto">
             <div class="block">
               <img class="img-fluid" src="~@/assets/images/home/section-02/im-01.png" alt=""/>
               <div class="title">Tìm kiếm</div>
               <div class="content">Tìm cho mình một tên miền dễ nhớ và độc đáo, đại diện cho thương hiệu kinh doanh của bạn.</div>
             </div>
           </div>
-          <div class="col-xl-4 col-9 mx-auto">
+          <div class="col-xl-4 col-md-6 col-10 mx-auto">
             <div class="block">
               <img class="img-fluid" src="~@/assets/images/home/section-02/im-02.png" alt=""/>
               <div class="title">Kiểm tra</div>
               <div class="content">Kiểm tra tính khả dụng của tên miền. Nếu tên miền bạn muốn không còn khả dụng, hãy tham khảo gợi ý từ Verisign.</div>
             </div>
           </div>
-          <div class="col-xl-4 col-9 mx-auto">
+          <div class="col-xl-4 col-md-6 col-10 mx-auto">
             <div class="block">
               <img class="img-fluid" src="~@/assets/images/home/section-02/im-03.png" alt=""/>
               <div class="title">Đăng ký</div>
@@ -44,11 +48,10 @@
 
 <style lang="scss" scoped>
   section {
-    margin-top: 5rem;
-    margin-bottom: 5rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 
     .section-content {
-      padding: 4rem 0 2rem;
 
       .section-title {
         position: relative;
@@ -57,6 +60,13 @@
         font-weight: 800;
         text-align: center;
         margin-bottom: 4rem;
+
+        @media screen and (min-width: 600px) and (max-width: 1200px) {
+          font-size: 2.133rem;
+        }
+        @media screen and (max-width: 600px) {
+          font-size: 1.429rem;
+        }
 
         &:before {
           content: '';
@@ -69,14 +79,32 @@
           border-radius: 1.25rem;
           z-index: -1;
 
+          @media screen and (min-width: 600px) and (max-width: 1200px) {
+            top: 2rem;
+            left: 6rem;
+            width: 10rem;
+            height: 1.5rem;
+          }
           @media screen and (max-width: 600px) {
-            top: 7.5rem;
-            left: 0.5em;
+            top: 1rem;
+            left: 3.5rem;
+            width: 7.5rem;
+            height: 1.25rem;
           }
         }
 
         .com {
           color: #99d4f5;
+        }
+      }
+
+      .col-xl-4 {
+
+        &:last-child {
+
+          .block {
+            margin-bottom: unset;
+          }
         }
       }
 
@@ -87,6 +115,10 @@
 
         img {
           margin-bottom: 2.5rem;
+
+          @media screen and (max-width: 600px) {
+            margin-bottom: 1.25rem;
+          }
         }
         .title {
           color: #0061a3;
@@ -94,6 +126,10 @@
           font-weight: 700;
           text-transform: uppercase;
           margin-bottom: 1.25rem;
+
+          @media screen and (max-width: 600px) {
+            margin-bottom: 1rem;
+          }
         }
         .content {
           color: #707070;

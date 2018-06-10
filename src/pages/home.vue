@@ -3,8 +3,8 @@
     <section-01></section-01>
 
     <div class="container">
-      <search-domain class="d-none d-xl-block"></search-domain>
-      <search-domain-mobile class="d-block d-xl-none"></search-domain-mobile>
+      <search-domain class="d-none d-md-block"></search-domain>
+      <search-domain-mobile class="d-block d-md-none"></search-domain-mobile>
     </div>
 
     <section-02></section-02>

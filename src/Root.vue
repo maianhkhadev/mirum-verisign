@@ -1,23 +1,21 @@
 <template>
   <div id="root">
     <header>
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-2 col-3">
-            <a href="#">
-              <img class="img-fluid" src="~@/assets/images/logo.png" alt="The Bloom">
-            </a>
+      <nav class="navbar navbar-expand-xl">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img class="img-fluid" src="~@/assets/images/logo.png" alt="" />
+          </a>
+
+          <div ref="icon" class="nav-icon" data-toggle="collapse" data-target="#navbarText">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
-          <div class="col-3 align-self-center d-block d-sm-none">
-            <div class="nav-icon">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-          <div class="col-10">
-            <ul class="nav">
+
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav ml-auto">
               <li class="nav-item">
                 <a class="nav-link" href="#">Tìm tên miền</a>
               </li>
@@ -33,7 +31,7 @@
             </ul>
           </div>
         </div>
-      </div>
+      </nav>
     </header>
 
     <router-view/>
@@ -77,9 +75,16 @@
 </template>
 
 <script>
-export default {
-  name: 'Root'
-}
+  export default {
+    name: 'Root',
+    mounted () {
+      let self = this
+
+      self.$refs.icon.addEventListener('click', function () {
+        this.classList.toggle('show')
+      })
+    }
+  }
 </script>
 
 <style lang="scss" src="@/assets/scss/root.scss"></style>
@@ -94,32 +99,87 @@ export default {
     padding-top: 1.25rem;
     padding-bottom: 1.25rem;
 
-    img {
-
+    @media screen and (max-width: 600px) {
+      // background-color: rgba(#000000, 0.5);
+      padding-top: 1rem;
+      padding-bottom: 1rem;
     }
 
-    .nav-icon {
-      float: right;
-      display: none;
+    .navbar {
+      padding: 0 15px;
+    }
 
-      @media only screen and (max-width: 600px) {
-        display: block;
+    img {
+      width: 7.25rem;
+
+      @media screen and (max-width: 600px) {
+        width: 3rem;
       }
     }
 
-    .nav {
-      justify-content: flex-end;
+    .nav-icon {
+      position: relative;
+      width: 1.75rem;
+      height: 1.25rem;
+      transform: rotate(0deg);
+      transition: 0.5s ease-in-out;
+      margin-left: auto;
+      cursor: pointer;
+
+      @media screen and (min-width: 1200px) {
+        display: none;
+      }
+
+      span {
+        display: block;
+        position: absolute;
+        left: 0;
+        width: 1.75rem;
+        height: 0.125rem;
+        background-color: #ffffff;
+        transform: rotate(0deg);
+        transition: .25s ease-in-out;
+        opacity: 1;
+
+        &:nth-child(1) {
+          top: 0;
+        }
+        &:nth-child(2), &:nth-child(3) {
+          top: 0.5625rem;
+        }
+        &:nth-child(4) {
+          top: 1.125rem;
+        }
+      }
+
+      &.show {
+
+        span:nth-child(1) {
+          top: 0.5625rem;
+          left: 50%;
+          width: 0%;
+        }
+        span:nth-child(2) {
+          transform: rotate(45deg);
+        }
+        span:nth-child(3) {
+          transform: rotate(-45deg);
+        }
+        span:nth-child(4) {
+          top: 0.5625rem;
+          left: 50%;
+          width: 0%;
+        }
+      }
+    }
+
+    .navbar-nav {
 
       @media only screen and (min-width: 1400px) {
         margin-right: -5rem;
       }
       @media only screen and (max-width: 1200px) {
-        justify-content: flex-start;
         margin-top: 1.25rem;
-      }
-      @media only screen and (max-width: 600px) {
-        display: none;
-        flex-direction: column;
       }
 
       .nav-item {
@@ -131,6 +191,10 @@ export default {
           text-transform: uppercase;
           letter-spacing: 0.25rem;
           padding: 2.25rem;
+
+          @media only screen and (max-width: 1200px) {
+            padding: 1rem 0.5rem;
+          }
 
           &:hover {
             text-decoration: underline;
@@ -171,6 +235,11 @@ export default {
         padding-left: 2.5rem;
         padding-right: 2.5rem;
 
+        @media screen and (min-width: 600px) and (max-width: 1200px) {
+          min-width: 15rem;
+          padding-left: 1.75rem;
+          padding-right: 1.75rem;
+        }
         @media screen and (max-width: 600px) {
           display: block;
           min-width: unset;

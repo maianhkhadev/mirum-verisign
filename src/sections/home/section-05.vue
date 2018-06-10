@@ -5,21 +5,21 @@
         <div class="section-title">Cách tên miền <span class="com">.com</span> giúp bạn giữ vững thương hiệu online</div>
 
         <div class="row">
-          <div class="col-xl-4 col-9 mx-auto">
+          <div class="col-xl-4 col-md-6 col-9 mx-auto">
             <div class="block">
               <img class="img-fluid" src="~@/assets/images/home/section-05/im-01.png" alt=""/>
               <div class="title">Giúp thương hiệu được nhận diện nhanh chóng</div>
               <div class="content">Tên miền .com là một trong những tên miền dễ nhận dạng và được tin cậy nhất thế giới. Hãy tận dụng ưu thế của tên miền .com</div>
             </div>
           </div>
-          <div class="col-xl-4 col-9 mx-auto">
+          <div class="col-xl-4 col-md-6 col-9 mx-auto">
             <div class="block">
               <img class="img-fluid" src="~@/assets/images/home/section-05/im-02.png" alt=""/>
               <div class="title">Giúp khách hàng tìm thấy bạn dễ hơn</div>
               <div class="content">Tên miền .com đưa khách hàng đến thẳng trang mạng xã hội hoặc trang thương mại điện tử của bạn.</div>
             </div>
           </div>
-          <div class="col-xl-4 col-9 mx-auto">
+          <div class="col-xl-4 col-md-6 col-9 mx-auto">
             <div class="block">
               <img class="img-fluid" src="~@/assets/images/home/section-05/im-03.png" alt=""/>
               <div class="title">Giúp bạn có uy tín hơn</div>
@@ -44,11 +44,10 @@
 
 <style lang="scss" scoped>
   section {
-    margin-top: 5rem;
-    margin-bottom: 5rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 
     .section-content {
-      padding: 4rem 0 2rem;
 
       .section-title {
         position: relative;
@@ -57,6 +56,13 @@
         font-weight: 800;
         text-align: center;
         margin-bottom: 4rem;
+
+        @media screen and (min-width: 600px) and (max-width: 1200px) {
+          font-size: 2.133rem;
+        }
+        @media screen and (max-width: 600px) {
+          font-size: 1.429rem;
+        }
 
         &:before {
           content: '';
@@ -69,14 +75,32 @@
           border-radius: 1.25rem;
           z-index: -1;
 
+          @media screen and (min-width: 600px) and (max-width: 1200px) {
+            top: 2rem;
+            left: 6rem;
+            width: 10rem;
+            height: 1.5rem;
+          }
           @media screen and (max-width: 600px) {
-            top: 7.5rem;
-            left: 0.5em;
+            top: 3.25rem;
+            left: 4.25rem;
+            width: 7.5rem;
+            height: 1.25rem;
           }
         }
 
         .com {
           color: #99d4f5;
+        }
+      }
+
+      .col-xl-4 {
+
+        &:last-child {
+
+          .block {
+            margin-bottom: unset;
+          }
         }
       }
 

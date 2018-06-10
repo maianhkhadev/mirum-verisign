@@ -59,13 +59,13 @@
 @import "node_modules/bootstrap/scss/forms";
 @import "node_modules/bootstrap/scss/buttons";
 @import "node_modules/bootstrap/scss/transitions";
-@import "node_modules/bootstrap/scss/dropdown";
+// @import "node_modules/bootstrap/scss/dropdown";
 @import "node_modules/bootstrap/scss/button-group";
 @import "node_modules/bootstrap/scss/input-group";
 // @import "node_modules/bootstrap/scss/custom-forms";
 @import "node_modules/bootstrap/scss/nav";
 @import "node_modules/bootstrap/scss/navbar";
-@import "node_modules/bootstrap/scss/card";
+// @import "node_modules/bootstrap/scss/card";
 // @import "node_modules/bootstrap/scss/breadcrumb";
 // @import "node_modules/bootstrap/scss/pagination";
 // @import "node_modules/bootstrap/scss/badge";
@@ -75,7 +75,7 @@
 @import "node_modules/bootstrap/scss/media";
 // @import "node_modules/bootstrap/scss/list-group";
 // @import "node_modules/bootstrap/scss/close";
-@import "node_modules/bootstrap/scss/modal";
+// @import "node_modules/bootstrap/scss/modal";
 // @import "node_modules/bootstrap/scss/tooltip";
 // @import "node_modules/bootstrap/scss/popover";
 // @import "node_modules/bootstrap/scss/carousel";
@@ -88,8 +88,12 @@ html {
     font-size: 15px;
   }
 
-  @media screen and (max-width: 600px) {
+  @media screen and (min-width: 350px) and (max-width: 600px) {
     font-size: 14px;
+  }
+
+  @media screen and (max-width: 350px) {
+    font-size: 12px;
   }
 }
 
@@ -97,8 +101,11 @@ body {
   font-family: 'Open Sans';
 }
 
-@media (min-width: 1200px) {
-  .container {
+.container {
+  @media (min-width: 768px) {
+    max-width: 768px;
+  }
+  @media (min-width: 1200px) {
     max-width: 1180px;
   }
 }
@@ -118,5 +125,19 @@ button {
   border-color: darken(#0061a3, 15%);
 }
 .btn-blue.focus, .btn-blue:focus {
+  box-shadow: 0 0 0 .2rem rgba(#0061a3, 0.5);
+}
+
+.btn-outline-blue {
+  color: #0061a3;
+  background-color: transparent;
+  border-color: #97d4f7;
+}
+.btn-outline-blue:hover {
+  color: #ffffff;
+  background-color: #0061a3;
+  border-color: #0061a3;
+}
+.btn-outline-blue.focus, .btn-outline-blue:focus {
   box-shadow: 0 0 0 .2rem rgba(#0061a3, 0.5);
 }

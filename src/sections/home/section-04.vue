@@ -3,7 +3,7 @@
     <div class="section-content">
       <div class="container">
         <div class="row">
-          <div class="col-xl-12 mx-auto">
+          <div class="col-xl-12 col-md-12 col-10 mx-auto">
             <div class="section-title">3 lý do bạn nên có một tên miền <span class="com">.com</span></div>
           </div>
         </div>
@@ -65,8 +65,14 @@
             centerPadding: '25%',
             responsive: [
               {
+                breakpoint: 900,
+                settings: {
+                  centerPadding: '10%'
+                }
+              }, {
                 breakpoint: 600,
                 settings: {
+                  dots: true,
                   centerMode: false
                 }
               }
@@ -83,11 +89,10 @@
 
 <style lang="scss" scoped>
   section {
-    margin-top: 5rem;
-    margin-bottom: 5rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 
     .section-content {
-      padding: 4rem 0 2rem;
 
       .section-title {
         position: relative;
@@ -96,6 +101,13 @@
         font-weight: 800;
         text-align: center;
         margin-bottom: 4rem;
+
+        @media screen and (min-width: 600px) and (max-width: 1200px) {
+          font-size: 2.133rem;
+        }
+        @media screen and (max-width: 600px) {
+          font-size: 1.429rem;
+        }
 
         &:before {
           content: '';
@@ -108,58 +120,83 @@
           border-radius: 1.25rem;
           z-index: -1;
 
+          @media screen and (min-width: 600px) and (max-width: 1200px) {
+            top: 2rem;
+            left: 28rem;
+            width: 10rem;
+            height: 1.5rem;
+          }
           @media screen and (max-width: 600px) {
-            top: 7.5rem;
-            left: 0.5em;
+            top: 1rem;
+            left: 3rem;
+            width: 7.5rem;
+            height: 1.25rem;
           }
         }
-      }
-    }
 
-    .slide {
-      position: relative;
-      height: 32rem;
-      border-radius: 2.5rem;
-      margin-left: 0.5rem;
-      margin-right: 0.5rem;
-      overflow: hidden;
-
-      video {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        width: 100%;
-        transform: translateX(-50%);
-
-        @media screen and (max-width: 600px) {
-          width: 130%;
+        .com {
+          color: #99d4f5;
         }
       }
-      .slide-footer {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background-color: #0061a3;
-        padding: 2rem 5rem;
+
+      .slide {
+        position: relative;
+        height: 32rem;
+        border-radius: 2.5rem;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        overflow: hidden;
 
         @media screen and (max-width: 600px) {
-          padding: 2rem;
+          height: 28rem;
         }
 
-        .title {
-          color: #ffffff;
-          font-size: 1.25rem;
-          font-weight: 700;
-          text-align: center;
-          text-transform: uppercase;
-          margin-bottom: 0.75rem;
+        video {
+          position: absolute;
+          top: 0;
+          left: 50%;
+          width: 100%;
+          transform: translateX(-50%);
+
+          @media screen and (max-width: 600px) {
+            width: 130%;
+          }
         }
-        .content {
-          height: 5rem;
-          color: #ffffff;
-          font-size: 1.25rem;
-          text-align: center;
+        .slide-footer {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          background-color: #0061a3;
+          padding: 2rem 5rem;
+
+          @media screen and (max-width: 600px) {
+            padding: 2rem;
+          }
+
+          .title {
+            color: #ffffff;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+
+            @media screen and (max-width: 600px) {
+              font-size: 1rem;
+              margin-bottom: 0.5rem;
+            }
+          }
+          .content {
+            height: 5rem;
+            color: #ffffff;
+            font-size: 1.25rem;
+            text-align: center;
+
+            @media screen and (max-width: 600px) {
+              font-size: 1rem;
+            }
+          }
         }
       }
     }

@@ -1,7 +1,7 @@
 <template>
   <section>
     <img class="deco-01" src="~@/assets/images/home/section-07/deco-01.png" alt=""/>
-
+    
     <div class="section-content">
       <div class="container">
         <div class="row">
@@ -14,7 +14,7 @@
             <slick :options="slick.options">
               <div>
         				<div class="slide">
-                  <img class="img-fluid" src="~@/assets/images/home/section-07/user-01.png" alt=""/>
+                  <img class="avatar" src="~@/assets/images/home/section-07/user-01.png" alt=""/>
                   <div class="slide-content">
                     <div class="testimonial">"Với mục tiêu xây dựng lòng tin của khách hàng và mở rộng kinh doanh ra nước ngoài, trong tương lai gần, chúng tôi cần một tên miền uy tín và được cả thế giới công nhận như tên miền .com."</div>
                     <div class="card-visit">Ông Nguyễn Bá Toàn, Giám đốc công ty TNHH Thương mai Dasavina</div>
@@ -23,7 +23,7 @@
         			</div>
               <div>
                 <div class="slide">
-                  <img class="img-fluid" src="~@/assets/images/home/section-07/user-01.png" alt=""/>
+                  <img class="avatar" src="~@/assets/images/home/section-07/user-01.png" alt=""/>
                   <div class="slide-content">
                     <div class="testimonial">"Với sứ mệnh trở thành một hãng hàng không quốc tế, tôi tin tưởng tên miền .com sẽ giúp củng cố mục tiêu này, đồng thời nâng cao giá trị và hình ảnh thương hiệu Vietjet."</div>
                     <div class="card-visit">Ông Desmond Lin, Giám đốc phát triển kinh doanh của Vietjet</div>
@@ -32,7 +32,7 @@
         			</div>
               <div>
                 <div class="slide">
-                  <img class="img-fluid" src="~@/assets/images/home/section-07/user-01.png" alt=""/>
+                  <img class="avatar" src="~@/assets/images/home/section-07/user-01.png" alt=""/>
                   <div class="slide-content">
                     <div class="testimonial">"Tất cả những thương hiệu lớn trên thế giới đều sử dụng tên miền .com và đó là tên miền rất được tín nhiệm. Do đó, chúng tôi quyết định tận dụng sự tín nhiệm đối với tên miền .com để đảm bảo thương hiệu của mình được khách hàng tin cậy."</div>
                     <div class="card-visit">Anh Trần Hiệp, Tổng Giám đốc Sứ Sương</div>
@@ -78,7 +78,7 @@
 
     @media screen and (max-width: 600px) {
       top: unset;
-      bottom: 5rem;
+      bottom: 4rem;
     }
   }
   .slick-prev {
@@ -112,7 +112,6 @@
     padding-bottom: 5rem;
 
     .section-content {
-      padding: 4rem 0 2rem;
 
       .section-title {
         position: relative;
@@ -121,6 +120,13 @@
         font-weight: 800;
         text-align: center;
         margin-bottom: 4rem;
+
+        @media screen and (min-width: 600px) and (max-width: 1200px) {
+          font-size: 2.133rem;
+        }
+        @media screen and (max-width: 600px) {
+          font-size: 1.429rem;
+        }
 
         &:before {
           content: '';
@@ -133,10 +139,22 @@
           border-radius: 1.25rem;
           z-index: -1;
 
-          @media screen and (max-width: 600px) {
-            top: 7.5rem;
-            left: 0.5em;
+          @media screen and (min-width: 600px) and (max-width: 1200px) {
+            top: 2rem;
+            left: 6rem;
+            width: 10rem;
+            height: 1.5rem;
           }
+          @media screen and (max-width: 600px) {
+            top: 3.25rem;
+            left: 4.25rem;
+            width: 7.5rem;
+            height: 1.25rem;
+          }
+        }
+
+        .com {
+          color: #99d4f5;
         }
       }
     }
@@ -150,15 +168,18 @@
       margin-left: 0.5rem;
       margin-right: 0.5rem;
 
+      @media screen and (min-width: 600px) and (max-width: 1200px) {
+        display: block;
+      }
       @media screen and (max-width: 600px) {
         display: block;
-        padding: 4rem 2.5rem 10rem;
+        padding: 4rem 2.5rem 8rem;
       }
 
-      img {
+      .avatar {
         margin-right: 1.5rem;
 
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 900px) {
           margin-left: auto;
           margin-right: auto;
           margin-bottom: 2rem;
@@ -174,7 +195,11 @@
           font-weight: 700;
           margin-bottom: 1.25rem;
 
+          @media screen and (min-width: 600px) and (max-width: 1200px) {
+            text-align: center;
+          }
           @media screen and (max-width: 600px) {
+            font-size: 1rem;
             text-align: center;
             margin-bottom: 2rem;
           }
@@ -184,7 +209,11 @@
           font-size: 1.25rem;
           font-weight: 700;
 
+          @media screen and (min-width: 600px) and (max-width: 1200px) {
+            text-align: center;
+          }
           @media screen and (max-width: 600px) {
+            font-size: 1rem;
             text-align: center;
           }
         }
