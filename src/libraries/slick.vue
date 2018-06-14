@@ -5,6 +5,8 @@
 </template>
 
 <script>
+  import { EventBus } from '@/plugins/event-bus.js'
+
   if (process.browser) {
     require('slick-carousel/slick/slick.css')
     require('slick-carousel/slick/slick-theme.css')
@@ -42,6 +44,10 @@
     mounted () {
       var self = this
       $(self.$refs.slick).slick(self.options)
+
+      $(self.$refs.slick).on('afterChange', function(event, slick, currentSlide, nextSlide) {
+        EventBus.$emit('slick-after', event, slick, currentSlide, nextSlide)
+      })
     }
   }
 </script>

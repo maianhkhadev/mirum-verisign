@@ -4,47 +4,29 @@
       <div class="container">
         <div class="row">
           <div class="col-xl-12 col-md-12 col-10 mx-auto">
-            <div class="section-title">3 lý do bạn nên có một tên miền <span class="com">.com</span></div>
+            <div class="section-title">3 lý do bạn nên có một <span class="underline">tên miền</span> <span class="com">.com</span></div>
           </div>
         </div>
       </div>
 
       <slick :options="slick.options">
   			<div>
-  				<div class="slide">
-            <video>
-              <source src="~@/assets/videos/demo.mp4" type="video/mp4">
-              Your browser does not support HTML5 video.
-            </video>
-            <div class="slide-footer">
-              <div class="title">Đăng kí dễ dàng</div>
-              <div class="content">Đăng kí tên miền .com rất dễ dàng với chi phí hợp lý.</div>
-            </div>
-          </div>
+          <slide-video videoId="JIPQj35Y7h8">
+            <template slot="title">Đăng kí dễ dàng</template>
+            <template slot="content">Đăng kí tên miền .com rất dễ dàng với chi phí hợp lý.</template>
+          </slide-video>
   			</div>
         <div>
-  				<div class="slide">
-            <video>
-              <source src="~@/assets/videos/demo.mp4" type="video/mp4">
-              Your browser does not support HTML5 video.
-            </video>
-            <div class="slide-footer">
-              <div class="title">Có địa chỉ email chuyên nghiệp</div>
-              <div class="content">Bạn có thể tạo cho mình một địa chỉ email chuyên nghiệp mà không cần website.</div>
-            </div>
-          </div>
+          <slide-video videoId="JIPQj35Y7h8">
+            <template slot="title">Có địa chỉ email chuyên nghiệp</template>
+            <template slot="content">Bạn có thể tạo cho mình một địa chỉ email chuyên nghiệp mà không cần website.</template>
+          </slide-video>
   			</div>
         <div>
-  				<div class="slide">
-            <video>
-              <source src="~@/assets/videos/demo.mp4" type="video/mp4">
-              Your browser does not support HTML5 video.
-            </video>
-            <div class="slide-footer">
-              <div class="title">Kết nói đơn giản</div>
-              <div class="content">Kết nối tên miền .com đến các mạng xã hội và trang thương mại điện tử đơn giản chỉ với một cú click chuột.</div>
-            </div>
-          </div>
+  				<slide-video videoId="JIPQj35Y7h8">
+            <template slot="title">Kết nối đơn giản</template>
+            <template slot="content">Kết nối tên miền .com đến các mạng xã hội và trang thương mại điện tử đơn giản chỉ với một cú click chuột.</template>
+          </slide-video>
   			</div>
   		</slick>
     </div>
@@ -53,6 +35,7 @@
 
 <script>
   import Slick from '@/libraries/slick'
+  import SlideVideo from '@/components/slide-video'
 
   export default {
     data () {
@@ -82,15 +65,25 @@
       }
     },
     components: {
-      'slick': Slick
+      'slick': Slick,
+      'slide-video': SlideVideo
     }
   }
 </script>
 
+<style lang="scss">
+  .section-04 {
+
+    .slick-dots {
+      bottom: 1.5rem;
+    }
+  }
+</style>
+
 <style lang="scss" scoped>
   section {
     padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-bottom: 1rem;
 
     .section-content {
 
@@ -109,94 +102,36 @@
           font-size: 1.429rem;
         }
 
-        &:before {
-          content: '';
-          position: absolute;
-          background-color: #99d4f5;
-          top: 2.5rem;
-          left: 36.5rem;
-          width: 15rem;
-          height: 2rem;
-          border-radius: 1.25rem;
-          z-index: -1;
+        .underline {
+          position: relative;
+          display: inline-block;
 
-          @media screen and (min-width: 600px) and (max-width: 1200px) {
-            top: 2rem;
-            left: 28rem;
-            width: 10rem;
-            height: 1.5rem;
-          }
-          @media screen and (max-width: 600px) {
-            top: 1rem;
-            left: 3rem;
-            width: 7.5rem;
-            height: 1.25rem;
+          &:before {
+            content: '';
+            position: absolute;
+            background-color: #cbe9fb;
+            top: 2.75rem;
+            left: 0;
+            width: 15rem;
+            height: 2rem;
+            border-radius: 1.25rem;
+            z-index: -1;
+
+            @media screen and (min-width: 600px) and (max-width: 1200px) {
+              top: 1.75rem;
+              width: 10rem;
+              height: 1.5rem;
+            }
+            @media screen and (max-width: 600px) {
+              top: 1rem;
+              width: 6.5rem;
+              height: 1rem;
+            }
           }
         }
 
         .com {
           color: #99d4f5;
-        }
-      }
-
-      .slide {
-        position: relative;
-        height: 32rem;
-        border-radius: 2.5rem;
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-        overflow: hidden;
-
-        @media screen and (max-width: 600px) {
-          height: 28rem;
-        }
-
-        video {
-          position: absolute;
-          top: 0;
-          left: 50%;
-          width: 100%;
-          transform: translateX(-50%);
-
-          @media screen and (max-width: 600px) {
-            width: 130%;
-          }
-        }
-        .slide-footer {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          background-color: #0061a3;
-          padding: 2rem 5rem;
-
-          @media screen and (max-width: 600px) {
-            padding: 2rem;
-          }
-
-          .title {
-            color: #ffffff;
-            font-size: 1.25rem;
-            font-weight: 700;
-            text-align: center;
-            text-transform: uppercase;
-            margin-bottom: 0.75rem;
-
-            @media screen and (max-width: 600px) {
-              font-size: 1rem;
-              margin-bottom: 0.5rem;
-            }
-          }
-          .content {
-            height: 5rem;
-            color: #ffffff;
-            font-size: 1.25rem;
-            text-align: center;
-
-            @media screen and (max-width: 600px) {
-              font-size: 1rem;
-            }
-          }
         }
       }
     }

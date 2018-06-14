@@ -31,12 +31,12 @@ const webpackConfig = merge(baseWebpackConfig, {
     chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },
   plugins: [
-    new PrerenderSpaPlugin(
-      // Path to compiled app
-      path.join(__dirname, '../dist'),
-      // List of endpoints you wish to prerender
-      [ '/' ]
-    ),
+    // new PrerenderSpaPlugin(
+    //   // Path to compiled app
+    //   path.join(__dirname, '../dist'),
+    //   // List of endpoints you wish to prerender
+    //   [ '/' ]
+    // ),
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
       'process.env': env

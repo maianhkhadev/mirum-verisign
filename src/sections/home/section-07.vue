@@ -1,23 +1,23 @@
 <template>
   <section>
     <img class="deco-01" src="~@/assets/images/home/section-07/deco-01.png" alt=""/>
-    
+
     <div class="section-content">
       <div class="container">
         <div class="row">
           <div class="col-xl-11 mx-auto">
-            <div class="section-title">Lấy cảm hứng từ những câu chuyện thành công với tên miền <span class="com">.com</span></div>
+            <div class="section-title">Lấy <span class="underline">cảm hứng</span> từ những câu chuyện thành công với tên miền<span class="com">.com</span></div>
           </div>
         </div>
         <div class="row">
           <div class="col-xl-12 mx-auto">
-            <slick :options="slick.options">
+            <slick class="slick-container" :options="slick.options">
               <div>
         				<div class="slide">
                   <img class="avatar" src="~@/assets/images/home/section-07/user-01.png" alt=""/>
                   <div class="slide-content">
                     <div class="testimonial">"Với mục tiêu xây dựng lòng tin của khách hàng và mở rộng kinh doanh ra nước ngoài, trong tương lai gần, chúng tôi cần một tên miền uy tín và được cả thế giới công nhận như tên miền .com."</div>
-                    <div class="card-visit">Ông Nguyễn Bá Toàn, Giám đốc công ty TNHH Thương mai Dasavina</div>
+                    <div class="card-visit">Ông Nguyễn Bá Toàn, Giám đốc công ty TNHH Thương mại Dasavina</div>
                   </div>
                 </div>
         			</div>
@@ -78,7 +78,9 @@
 
     @media screen and (max-width: 600px) {
       top: unset;
-      bottom: 4rem;
+      bottom: 7rem;
+      width: auto;
+      height: auto
     }
   }
   .slick-prev {
@@ -109,7 +111,7 @@
   section {
     position: relative;
     padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-bottom: 1rem;
 
     .section-content {
 
@@ -128,28 +130,31 @@
           font-size: 1.429rem;
         }
 
-        &:before {
-          content: '';
-          position: absolute;
-          background-color: #99d4f5;
-          top: 2.5rem;
-          left: 36.5rem;
-          width: 15rem;
-          height: 2rem;
-          border-radius: 1.25rem;
-          z-index: -1;
+        .underline {
+          position: relative;
+          display: inline-block;
 
-          @media screen and (min-width: 600px) and (max-width: 1200px) {
-            top: 2rem;
-            left: 6rem;
-            width: 10rem;
-            height: 1.5rem;
-          }
-          @media screen and (max-width: 600px) {
-            top: 3.25rem;
-            left: 4.25rem;
-            width: 7.5rem;
-            height: 1.25rem;
+          &:before {
+            content: '';
+            position: absolute;
+            background-color: #cbe9fb;
+            top: 2.75rem;
+            left: 0;
+            width: 15rem;
+            height: 2rem;
+            border-radius: 1.25rem;
+            z-index: -1;
+
+            @media screen and (min-width: 600px) and (max-width: 1200px) {
+              top: 1.75rem;
+              width: 10rem;
+              height: 1.5rem;
+            }
+            @media screen and (max-width: 600px) {
+              top: 1rem;
+              width: 7.5rem;
+              height: 1rem;
+            }
           }
         }
 
@@ -159,21 +164,34 @@
       }
     }
 
+    .slick-container {
+
+      @media screen and (max-width: 600px) {
+        margin-left: -15px;
+        margin-right: -15px;
+      }
+    }
+
     .slide {
       display: flex;
       align-items: flex-start;
       background-color: #99d4f5;
       border-radius: 2.5rem;
+      box-shadow: 0 2rem 2rem 0 rgba(#000000, 0.1);
       padding: 5rem 10rem;
-      margin-left: 0.5rem;
-      margin-right: 0.5rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
+      margin-bottom: 4rem;
 
       @media screen and (min-width: 600px) and (max-width: 1200px) {
         display: block;
       }
       @media screen and (max-width: 600px) {
         display: block;
+        height: 39rem;
         padding: 4rem 2.5rem 8rem;
+        margin-left: calc(0.5rem + 15px);
+        margin-right: calc(0.5rem + 15px);
       }
 
       .avatar {
@@ -183,6 +201,10 @@
           margin-left: auto;
           margin-right: auto;
           margin-bottom: 2rem;
+        }
+
+        @media screen and (max-width: 600px) {
+          max-width: 50%;
         }
       }
 

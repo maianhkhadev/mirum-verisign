@@ -1,23 +1,14 @@
-import axios from '@/plugins/axios'
-
-function transform (rawData) {
-  return {
-    seo: {
-      title: '',
-      description: rawData.meta_description
-    },
-    id: rawData.id,
-    alias: rawData.alias,
-    title: rawData.title,
-    content: rawData.description ? rawData.description : rawData.shortDescription,
-    thumbnail: {
-      src: rawData.image,
-      alt: ''
-    }
-  }
-}
+import axios, { mirum } from '@/plugins/axios'
 
 export function search ({ commit, state }, { name = '' }) {
+
+  mirum.post('/search', { keyword: name })
+  .then(function (res) {
+    console.log(res)
+  })
+  .catch(function (error) {
+    console.log(error)
+  })
 
   axios.get(`/bulk-check?names=${name}&tlds=com&include-registered=true`)
   .then(function (res) {
@@ -52,14 +43,11 @@ export function search ({ commit, state }, { name = '' }) {
   })
 
   axios.get(`/segment?name=${name}`)
-  .then(function (sasa) {
+  .then(function (segment) {
 
-    axios.get(`/spin-word?name=${sasa.data.segmentedName.join(',')}&tlds=com`)
+    axios.get(`/spin-word?name=${segment.data.segmentedName.join(',')}&tlds=com`)
     .then(function (res) {
       commit('setSegments', { names: res.data.segmentation, domains: res.data.results })
-    })
-    .catch(function (error1) {
-
     })
   })
   .catch(function (error) {

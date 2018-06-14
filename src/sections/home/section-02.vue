@@ -3,8 +3,8 @@
     <div class="container">
       <div class="section-content">
         <div class="row">
-          <div class="col-xl-12 col-11 mx-auto">
-            <div class="section-title">Làm thế nào để đăng ký tên miền <span class="com">.com</span>?</div>
+          <div class="col-xl-12 col-10 mx-auto">
+            <div class="section-title">Làm thế nào để đăng ký <span class="underline">tên miền</span> <span class="com">.com</span>?</div>
           </div>
         </div>
 
@@ -68,28 +68,31 @@
           font-size: 1.429rem;
         }
 
-        &:before {
-          content: '';
-          position: absolute;
-          background-color: #99d4f5;
-          top: 2.5rem;
-          left: 36.5rem;
-          width: 15rem;
-          height: 2rem;
-          border-radius: 1.25rem;
-          z-index: -1;
+        .underline {
+          position: relative;
+          display: inline-block;
 
-          @media screen and (min-width: 600px) and (max-width: 1200px) {
-            top: 2rem;
-            left: 6rem;
-            width: 10rem;
-            height: 1.5rem;
-          }
-          @media screen and (max-width: 600px) {
-            top: 1rem;
-            left: 3.5rem;
-            width: 7.5rem;
-            height: 1.25rem;
+          &:before {
+            content: '';
+            position: absolute;
+            background-color: #cbe9fb;
+            top: 2.75rem;
+            left: 0;
+            width: 15rem;
+            height: 2rem;
+            border-radius: 1.25rem;
+            z-index: -1;
+
+            @media screen and (min-width: 600px) and (max-width: 1200px) {
+              top: 1.75rem;
+              width: 10rem;
+              height: 1.5rem;
+            }
+            @media screen and (max-width: 600px) {
+              top: 1rem;
+              width: 7.5rem;
+              height: 1rem;
+            }
           }
         }
 
@@ -99,11 +102,71 @@
       }
 
       .col-xl-4 {
+        border-right: 0.0625rem solid #99d4f5;
+
+        &::after {
+          content: '\2192';
+          position: absolute;
+          color: #000000;
+          background-color: #ffffff;
+          top: 50%;
+          right: -0.75rem;
+          transform: translateY(-50%);
+          font-size: 1.5rem;
+          padding: 1.5rem 0;
+        }
+
+        &:first-child {
+
+          .block {
+            margin-top: unset;
+          }
+        }
 
         &:last-child {
+          border-right: unset;
+
+          &::after {
+            content: '';
+          }
 
           .block {
             margin-bottom: unset;
+          }
+        }
+
+        @media screen and (min-width: 600px) and (max-width: 1200px) {
+          border-right: unset;
+
+          &::after {
+            content: '';
+          }
+
+          .block {
+            margin-top: unset;
+          }
+        }
+        @media screen and (max-width: 600px) {
+          border-right: unset;
+          border-bottom: 0.125rem solid #99d4f5;
+
+          &::after {
+            content: '\2193';
+            top: unset;
+            left: 50%;
+            right: unset;
+            bottom: -1rem;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            padding: 0 1.5rem;
+          }
+
+          &:last-child {
+            border-bottom: unset;
+
+            &::after {
+              content: '';
+            }
           }
         }
       }
@@ -111,9 +174,16 @@
       .block {
         text-align: center;
         padding: 1.25rem 1.5rem;
-        margin-bottom: 2rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+
+        @media screen and (min-width: 1200px) {
+          margin-top: unset;
+          margin-bottom: unset;
+        }
 
         img {
+          max-width: 85%;
           margin-bottom: 2.5rem;
 
           @media screen and (max-width: 600px) {

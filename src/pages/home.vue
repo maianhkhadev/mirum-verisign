@@ -2,22 +2,22 @@
   <main class="main">
     <section-01></section-01>
 
-    <div class="container">
+    <div class="container block-search-domain">
       <search-domain class="d-none d-md-block"></search-domain>
       <search-domain-mobile class="d-block d-md-none"></search-domain-mobile>
     </div>
 
-    <section-02></section-02>
+    <section-02 class="section-02"></section-02>
 
-    <section-03></section-03>
+    <section-03 class="section-03"></section-03>
 
-    <section-04></section-04>
+    <section-04 class="section-04"></section-04>
 
-    <section-05></section-05>
+    <section-05 class="section-05"></section-05>
 
-    <section-06></section-06>
+    <section-06 class="section-06"></section-06>
 
-    <section-07></section-07>
+    <section-07 class="section-07"></section-07>
   </main>
 </template>
 

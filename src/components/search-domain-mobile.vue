@@ -11,7 +11,7 @@
         <a class="remove" href="#" v-if="searchStatus === 2" v-on:click.prevent="removeSearch()">
           <img class="icon" src="~@/assets/images/icon-remove.png" alt=""/>
         </a>
-        <span class="tlds">
+        <span class="tlds" v-on:click="searchDomain">
           <span class="com">.com</span>
         </span>
         <div class="hidden">{{ domainSearched.name }}</div>
@@ -19,23 +19,18 @@
     </div>
 
     <div class="block-content" v-if="searchStatus === 2">
-      <div class="domain-selected">
-        <div class="row">
-          <div class="col-12">
-            <div class="message">
-              <span v-if="domainSelected.availability === 'available'">Xin chúc mừng! </span>
-              <span v-else>Rất tiếc! </span>
-              Tên miền
-              <span class="name">{{ domainSelected.name }}</span>
-              <span v-if="domainSelected.availability !== 'available'">không </span>
-              khả dụng
-            </div>
-          </div>
-          <div class="col-8 text-center mx-auto">
-            <button class="btn btn-blue" v-if="domainSelected.availability === 'available'">Đăng ký ngay</button>
-          </div>
+      <div class="domain-searched">
+        <div v-if="domainSearched.availability === 'available'">
+          <div class="message">&#10003; Xin chúc mừng! Tên miền của bạn khả dụng!</div>
+          <button class="btn btn-blue">Đăng ký ngay</button>
+        </div>
+        <div v-else>
+          <div class="message">&#10007; Tên miền không khả dụng</div>
         </div>
       </div>
+
+      <div class="notice">Mẹo: thêm từ màu xanh bên dưới để có tên miền khả dụng.</div>
+
       <div class="line">
         <div class="line-header">Thêm tiền tố</div>
         <div class="line-content">
@@ -90,10 +85,6 @@
         segmentSelected: {
           name: '',
           domains: []
-        },
-        domainSelected: {
-          name: '',
-          availability: ''
         }
       }
     },
@@ -128,11 +119,6 @@
         let self = this
 
         self.searchStatus = 0
-      },
-      domainSearched: function (domain) {
-        let self = this
-
-        self.selectDomain(domain)
       }
     },
     methods: {
@@ -144,9 +130,7 @@
         }
 
         self.searchStatus = 1
-        setTimeout(function () {
-          self.searchStatus = 2
-        }, 2000)
+        setTimeout(function () { self.searchStatus = 2 }, 2000)
         store.dispatch('domains/search', { name: self.name })
       },
       selectSegment: function (segment) {
@@ -160,8 +144,10 @@
       selectDomain: function (domain) {
         let self = this
 
-        self.domainSelected = { ...self.domainSelected, ...domain }
-        console.log(1)
+        self.name = domain.name
+
+        setTimeout(function () { self.searchDomain() }, 250)
+
         let modal = document.querySelector('.modal-sort')
         modal.classList.remove('show')
       },
@@ -183,7 +169,7 @@
     position: relative;
     background-color: #ffffff;
     border-radius: 1.25rem;
-    box-shadow: 0 0.5rem 4rem 0 rgba(#000000, 0.05);
+    box-shadow: 0 2rem 8rem 0 rgba(#000000, 0.1);
     padding: 2.5rem 1.429rem;
     margin-top: -3.714rem;
     margin-left: -5px;
@@ -249,6 +235,7 @@
           right: 0;
           border-left: 0.0625rem solid #97d4f7;
           padding: 0.625rem 1rem;
+          cursor: pointer;
 
           .com {
             color: #707070;
@@ -265,6 +252,9 @@
           border-radius: 2.5rem;
           padding: 0.625rem 6rem 0.625rem 1.429rem;
 
+          &:focus {
+            box-shadow: 0 0 0 0.2rem rgba(#97d4f7, 0.25);
+          }
           &::placeholder {
             color: rgba(#97d4f7, 0.75);
           }
@@ -279,25 +269,45 @@
       padding-top: 1.25rem;
       padding-bottom: 2.5rem;
 
-      .domain-selected {
-        margin-bottom: 1.5rem;
+      .domain-searched {
+        text-align: center;
+        margin-bottom: 1.429rem;
 
         .message {
+          position: relative;
           color: #00a0e1;
+          background-color: #e5e5e5;
           font-size: 1rem;
           text-align: center;
-          margin-bottom: 1.429rem;
+          border-radius: 2rem;
+          padding: 0.5rem 2rem;
+          margin-bottom: 0.7143rem;
 
-          .name {
-            font-weight: 700;
+          &::before {
+            content: '\25b4';
+            position: absolute;
+            top: -2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #e5e5e5;
+            font-size: 2rem;
           }
         }
+
         button {
-          font-size: 1rem;
+          font-size: 1.125rem;
           font-weight: 700;
           border-radius: 2rem;
           padding: 0.5rem 3rem;
+          margin-top: -0.25rem;
         }
+      }
+
+      .notice {
+        color: #0061a3;
+        font-size: 1.125rem;
+        text-align: center;
+        margin-bottom: 1.429rem;
       }
 
       .line {

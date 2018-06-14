@@ -11,32 +11,23 @@
         <a class="remove" href="#" v-if="searchStatus === 2" v-on:click.prevent="removeSearch()">
           <img class="icon" src="~@/assets/images/icon-remove.png" alt=""/>
         </a>
-        <span class="tlds">
+        <span class="tlds" v-on:click="searchDomain">
           <span class="com">.com</span>
           <img class="icon" src="~@/assets/images/icon-search.png" alt=""/>
         </span>
-        <div class="hidden">{{ domainSearched.name }}</div>
       </div>
     </div>
 
     <div class="block-content" v-if="searchStatus === 2">
-      <div class="domain-selected">
-        <div class="row">
-          <div class="col-xl-8 col-md-8 align-self-center">
-            <span class="message">
-              <span v-if="domainSelected.availability === 'available'">Xin chúc mừng! </span>
-              <span v-else>Rất tiếc! </span>
-              Tên miền
-              <span class="name">{{ domainSelected.name }}</span>
-              <span v-if="domainSelected.availability !== 'available'">không </span>
-              khả dụng
-            </span>
-          </div>
-          <div class="col-xl-4 col-md-4">
-            <button class="btn btn-blue btn-block" v-if="domainSelected.availability === 'available'">Đăng ký ngay</button>
-          </div>
+      <div class="domain-searched">
+        <div v-if="domainSearched.availability === 'available'">
+          <span class="message">&#10003; Xin chúc mừng! Tên miền của bạn khả dụng!</span> <button class="btn btn-blue">Đăng ký ngay</button>
+        </div>
+        <div v-else>
+          <span class="message">&#10007; Tên miền không khả dụng</span>
         </div>
       </div>
+      <div class="notice">Mẹo: thêm từ màu xanh bên dưới để có tên miền khả dụng.</div>
       <div class="columns">
         <div class="column first-column">
           <div class="column-header">Thêm tiền tố</div>
@@ -79,11 +70,7 @@ export default {
   data () {
     return {
       name: '',
-      searchStatus: false,
-      domainSelected: {
-        name: '',
-        availability: ''
-      }
+      searchStatus: false
     }
   },
   computed: {
@@ -117,11 +104,6 @@ export default {
       let self = this
 
       self.searchStatus = 0
-    },
-    domainSearched: function (domain) {
-      let self = this
-
-      self.selectDomain(domain)
     }
   },
   methods: {
@@ -133,15 +115,15 @@ export default {
       }
 
       self.searchStatus = 1
-      setTimeout(function () {
-        self.searchStatus = 2
-      }, 2000)
+      setTimeout(function () { self.searchStatus = 2 }, 2000)
       store.dispatch('domains/search', { name: self.name })
     },
     selectDomain: function (domain) {
       let self = this
 
-      self.domainSelected = { ...self.domainSelected, ...domain }
+      self.name = domain.name
+
+      setTimeout(function () { self.searchDomain() }, 250)
     },
     removeSearch: function () {
       let self = this
@@ -157,10 +139,14 @@ export default {
   position: relative;
   background-color: #ffffff;
   border-radius: 4rem;
-  box-shadow: 0 0.5rem 4rem 0 rgba(#000000, 0.05);
+  box-shadow: 0 2rem 8rem 0 rgba(#000000, 0.1);
   padding: 2.5rem;
   margin-top: -10rem;
-  margin-bottom: 5rem;
+  margin-bottom: 2.5rem;
+
+  @media screen and (min-width: 1500px) {
+    margin-bottom: 5rem;
+  }
 
   .block-header {
     padding: 1.25rem 7.25rem;
@@ -227,6 +213,7 @@ export default {
         right: 0;
         border-left: 0.0625rem solid #97d4f7;
         padding: 1.125rem 3rem 1.25rem;
+        cursor: pointer;
 
         .com {
           color: #707070;
@@ -248,6 +235,9 @@ export default {
       border-radius: 2.5rem;
       padding: 1.5rem 15rem 1.5rem 3.75rem;
 
+      &:focus {
+        box-shadow: 0 0 0 0.2rem rgba(#97d4f7, 0.25);
+      }
       &::placeholder {
         color: rgba(#97d4f7, 0.75);
       }
@@ -258,41 +248,58 @@ export default {
   }
 
   .block-content {
-    padding-top: 1.25rem;
     padding-bottom: 2.5rem;
 
-    .domain-selected {
+    .domain-searched {
       padding-left: 9rem;
       padding-right: 9rem;
       margin-bottom: 2.5rem;
 
       @media screen and (min-width: 600px) and (max-width: 1200px) {
-        padding-left: 2.5rem;
-        padding-right: 2.5rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
       }
 
       .message {
+        position: relative;
+        display: inline-block;
         color: #00a0e1;
+        background-color: #e5e5e5;
         font-size: 1.25rem;
-        line-height: 1.45;
+        border-radius: 2rem;
+        padding: 0.5rem 2rem;
+        margin-left: -2rem;
+        margin-right: 1rem;
 
-        .name {
-          font-weight: 700;
+        &::before {
+          content: '\25b4';
+          position: absolute;
+          top: -2rem;
+          left: 50%;
+          transform: translateX(-50%);
+          color: #e5e5e5;
+          font-size: 2rem;
         }
       }
+
       button {
-        font-size: 1.25rem;
+        font-size: 1.125rem;
         font-weight: 700;
         border-radius: 2rem;
-        padding: 0.75rem 3rem;
+        padding: 0.5rem 3rem;
+        margin-top: -0.375rem;
 
         @media screen and (min-width: 600px) and (max-width: 1200px) {
-          padding: 0.75rem 0;
+          padding: 0.5rem 1rem;
         }
       }
     }
-    .domain-name {
-      color: #000000;
+
+    .notice {
+      color: #0061a3;
+      font-size: 1.125rem;
+      text-align: center;
+      margin-bottom: 2.5rem;
     }
 
     .columns {
