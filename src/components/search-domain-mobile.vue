@@ -4,7 +4,7 @@
       <div class="title">Tìm cho mình một tên miền .com tại đây</div>
 
       <div class="form-group">
-        <input type="text" class="form-control" v-on:keyup.enter="searchDomain" v-model.lazy="name" placeholder="Ví dụ: nguyenduflower.com">
+        <input type="text" class="form-control" v-on:keyup.enter="searchDomain" v-model.lazy="name" placeholder="Ví dụ: nguyenduflower">
         <span class="load" v-if="searchStatus === 1">
           <img class="icon" src="~@/assets/images/icon-load.png" alt=""/>
         </span>
@@ -35,7 +35,7 @@
         <div class="line-header">Thêm tiền tố</div>
         <div class="line-content">
           <template v-for="domain in prefixes">
-            <span class="word" v-bind:key="domain.name" v-on:click="selectDomain(domain)">{{ domain.token }}</span>
+            <span class="word" v-bind:class="{ 'available': domain.availability === 'available' }" v-bind:key="domain.name" v-on:click="selectDomain(domain)">{{ domain.token }}</span>
           </template>
         </div>
       </div>
@@ -52,7 +52,7 @@
         <div class="line-header">Thêm hậu tố</div>
         <div class="line-content">
           <template v-for="domain in suffixes">
-            <span class="word" v-bind:key="domain.name" v-on:click="selectDomain(domain)">{{ domain.token }}</span>
+            <span class="word" v-bind:class="{ 'available': domain.availability === 'available' }" v-bind:key="domain.name" v-on:click="selectDomain(domain)">{{ domain.token }}</span>
           </template>
         </div>
       </div>
@@ -66,7 +66,7 @@
       <div class="modal-content">
         <ul>
           <template v-for="domain in segmentSelected.domains">
-            <li class="sort-item" v-bind:key="domain.name" v-on:click="selectDomain(domain)">{{ domain.token }}</li>
+            <li class="sort-item" v-bind:class="{ 'available': domain.availability === 'available' }" v-bind:key="domain.name" v-on:click="selectDomain(domain)">{{ domain.token }}</li>
           </template>
         </ul>
       </div>
@@ -144,7 +144,7 @@
       selectDomain: function (domain) {
         let self = this
 
-        self.name = domain.name
+        self.name = domain.name.replace('.com', '')
 
         setTimeout(function () { self.searchDomain() }, 250)
 
@@ -281,7 +281,7 @@
           text-align: center;
           border-radius: 2rem;
           padding: 0.5rem 2rem;
-          margin-bottom: 0.7143rem;
+          margin-bottom: 1.429rem;
 
           &::before {
             content: '\25b4';
@@ -325,15 +325,22 @@
 
           .word {
             display: inline-block;
-            color: #00559d;
+            color: #707070;
             background-color: #99d4f5;
             font-size: 1rem;
             font-weight: 700;
             padding: 0.75rem 2rem;
             margin-right: 0.125rem;
+            pointer-events: none;
+            cursor: pointer;
 
             &:last-child {
               margin-right: unset;
+            }
+
+            &.available {
+              color: #00a1de;
+              pointer-events: unset;
             }
           }
         }
@@ -422,19 +429,27 @@
     }
     .modal-content {
       height: calc(100vh - 8.571rem);
+      border: unset;
 
       ul {
         list-style-type: none;
         -webkit-padding-start: 0;
       }
       .sort-item {
-        color: #0061a3;
+        color: #707070;
         font-size: 1rem;
         font-weight: 700;
         border: 0.1429rem solid #97d4f7;
         border-radius: 2rem;
         padding: 0.5714rem 1.5rem;
         margin-bottom: 0.7143rem;
+        pointer-events: none;
+        cursor: pointer;
+
+        &.available {
+          color: #00a1de;
+          pointer-events: unset;
+        }
       }
     }
   }

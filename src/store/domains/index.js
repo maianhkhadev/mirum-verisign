@@ -30,7 +30,7 @@ const mutations = {
 
     state.segments = []
     segments.forEach(function (segment) {
-      // if(segment.domains.length > 0)
+      if(segment.domains.length > 0)
         state.segments.push(segment)
     })
   }

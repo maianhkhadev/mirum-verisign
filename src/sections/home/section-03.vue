@@ -177,7 +177,7 @@
             @media screen and (max-width: 600px) {
               top: 1rem;
               left: 0;
-              width: 7.5rem;
+              width: 6.5rem;
               height: 1rem;
             }
           }

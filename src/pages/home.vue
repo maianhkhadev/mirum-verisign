@@ -18,6 +18,8 @@
     <section-06 class="section-06"></section-06>
 
     <section-07 class="section-07"></section-07>
+
+    <modal-video></modal-video>
   </main>
 </template>
 
@@ -32,6 +34,7 @@
   import Section07 from '@/sections/home/section-07'
   import SearchDomain from '@/components/search-domain'
   import SearchDomainMobile from '@/components/search-domain-mobile'
+  import ModalVideo from '@/components/modal-video'
 
   export default {
     data () {
@@ -48,11 +51,8 @@
       'section-06': Section06,
       'section-07': Section07,
       'search-domain': SearchDomain,
-      'search-domain-mobile': SearchDomainMobile
+      'search-domain-mobile': SearchDomainMobile,
+      'modal-video': ModalVideo
     }
   }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

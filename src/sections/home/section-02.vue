@@ -90,7 +90,7 @@
             }
             @media screen and (max-width: 600px) {
               top: 1rem;
-              width: 7.5rem;
+              width: 6.5rem;
               height: 1rem;
             }
           }

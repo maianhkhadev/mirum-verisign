@@ -1,6 +1,7 @@
 <template>
   <div class="slide">
-    <iframe ref="iframe" :src="`https://www.youtube.com/embed/${videoId}?enablejsapi=1`" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <img class="thumbnail" :src="`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`" alt=""/>
+    <button class="" v-on:click="showVideo">&#9658;</button>
     <div class="slide-footer">
       <div class="title"><slot name="title"></slot></div>
       <div class="content"><slot name="content"></slot></div>
@@ -24,24 +25,12 @@
         }
       }
     },
-    mounted () {
-      let self = this
+    methods: {
+      showVideo: function () {
+        let self = this
 
-      setTimeout(function () {
-        self.youtube = new YT.Player(self.$refs.iframe, {
-          events: {
-            onReady: function () {
-
-            }
-          }
-        })
-      }, 2000)
-
-      EventBus.$on('slick-after', (event, slick, currentSlide, nextSlide) => {
-        if (self.youtube !== null)
-          self.youtube.stopVideo()
-      })
-      // EventBus.$off('i-got-clicked', clickHandler);
+        EventBus.$emit('show-modal-video', self.videoId)
+      }
     }
   }
 </script>
@@ -61,16 +50,37 @@
     height: 28rem;
   }
 
-  iframe {
+  .thumbnail {
     position: absolute;
     top: 0;
     left: 50%;
     width: 100%;
-    height: 75%;
+    height: auto;
     transform: translateX(-50%);
 
     @media screen and (max-width: 600px) {
       width: 130%;
+    }
+  }
+
+  button {
+    position: absolute;
+    top: 32%;
+    left: 50%;
+    width: 5rem;
+    height: 5rem;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    background: radial-gradient(rgba(#05407a, 0.9), rgba(#05407a, 0.1));
+    font-size: 1.25rem;
+    border: 0.125rem solid #ffffff;
+    border-radius: 50%;
+
+    &:hover {
+      background: rgba(#05407a, 0.9);
+    }
+    &:focus {
+      outline: unset;
     }
   }
 
@@ -112,3 +122,4 @@
   }
 }
 </style>
+<!-- <iframe ref="iframe" :src="`https://www.youtube.com/embed/${videoId}?enablejsapi=1`" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->

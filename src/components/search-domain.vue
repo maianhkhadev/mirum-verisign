@@ -4,7 +4,7 @@
       <div class="title">Tìm cho mình một tên miền .com tại đây</div>
 
       <div class="form-group">
-        <input type="text" class="form-control" v-on:keyup.enter="searchDomain" v-model.lazy="name" placeholder="Ví dụ: nguyenduflower.com">
+        <input type="text" class="form-control" v-on:keyup.enter="searchDomain" v-model.lazy="name" placeholder="Ví dụ: nguyenduflower">
         <span class="load" v-if="searchStatus === 1">
           <img class="icon" src="~@/assets/images/icon-load.png" alt=""/>
         </span>
@@ -33,7 +33,7 @@
           <div class="column-header">Thêm tiền tố</div>
           <div class="column-content">
             <template v-for="domain in prefixes">
-              <div class="word" v-bind:key="domain.name" v-on:click="selectDomain(domain)">{{ domain.token }}</div>
+              <div class="word" v-bind:class="{ 'available': domain.availability === 'available' }" v-bind:key="domain.name" v-on:click="selectDomain(domain)">{{ domain.token }}</div>
             </template>
           </div>
         </div>
@@ -45,7 +45,7 @@
             </div>
             <div class="column-content">
               <template v-for="domain in segment.domains">
-                <div class="word" v-bind:key="domain.name" v-on:click="selectDomain(domain)">{{ domain.token }}</div>
+                <div class="word" v-bind:class="{ 'available': domain.availability === 'available' }" v-bind:key="domain.name" v-on:click="selectDomain(domain)">{{ domain.token }}</div>
               </template>
             </div>
           </div>
@@ -54,7 +54,7 @@
           <div class="column-header">Thêm hậu tố</div>
           <div class="column-content">
             <template v-for="domain in suffixes">
-              <div class="word" v-bind:key="domain.name" v-on:click="selectDomain(domain)">{{ domain.token }}</div>
+              <div class="word" v-bind:class="{ 'available': domain.availability === 'available' }" v-bind:key="domain.name" v-on:click="selectDomain(domain)">{{ domain.token }}</div>
             </template>
           </div>
         </div>
@@ -121,7 +121,7 @@ export default {
     selectDomain: function (domain) {
       let self = this
 
-      self.name = domain.name
+      self.name = domain.name.replace('.com', '')
 
       setTimeout(function () { self.searchDomain() }, 250)
     },
@@ -333,13 +333,19 @@ export default {
         .column-content {
 
           .word {
-            color: #00a1de;
+            color: #707070;
             font-size: 1.125rem;
             font-weight: 700;
             text-align: center;
             padding-top: 0.75rem;
             padding-bottom: 0.75rem;
+            pointer-events: none;
             cursor: pointer;
+
+            &.available {
+              color: #00a1de;
+              pointer-events: unset;
+            }
           }
         }
       }

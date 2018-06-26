@@ -26,7 +26,7 @@ export function search ({ commit, state }, { name = '' }) {
 
   })
 
-  axios.get(`/add-prefix?name=${name}&tlds=com&max-results=6`)
+  axios.get(`/add-prefix?name=${name}&tlds=com&max-results=6&include-registered=true`)
   .then(function (res) {
     commit('setPrefixes', { prefixes: res.data.results })
   })
@@ -34,7 +34,7 @@ export function search ({ commit, state }, { name = '' }) {
 
   })
 
-  axios.get(`/add-suffix?name=${name}&tlds=com&max-results=6`)
+  axios.get(`/add-suffix?name=${name}&tlds=com&max-results=6&include-registered=true`)
   .then(function (res) {
     commit('setSuffixes', { suffixes: res.data.results })
   })
@@ -45,7 +45,7 @@ export function search ({ commit, state }, { name = '' }) {
   axios.get(`/segment?name=${name}`)
   .then(function (segment) {
 
-    axios.get(`/spin-word?name=${segment.data.segmentedName.join(',')}&tlds=com`)
+    axios.get(`/spin-word?name=${segment.data.segmentedName.join(',')}&tlds=com&include-registered=true`)
     .then(function (res) {
       commit('setSegments', { names: res.data.segmentation, domains: res.data.results })
     })
