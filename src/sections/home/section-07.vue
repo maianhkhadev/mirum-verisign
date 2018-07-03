@@ -68,6 +68,7 @@
 
 <style lang="scss">
   .slick-prev, .slick-next {
+    top: calc(50% - 2rem);
     z-index: 999;
 
     &:before {

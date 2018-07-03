@@ -11,5 +11,7 @@ export const getSuffixes = (state) => {
 }
 
 export const getSegments = (state) => {
-  return state.segments
+  return state.segments.filter(function (segment) {
+    return segment.name !== '-' && segment.domains.length > 0
+  })
 }

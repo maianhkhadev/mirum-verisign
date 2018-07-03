@@ -2,6 +2,11 @@
   <div ref="modal" class="modal modal-video fade">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
       <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
         <div class="modal-body">
 					<div class="embed-responsive embed-responsive-16by9">
 						<iframe ref="iframe" class="embed-responsive-item" :src="`https://www.youtube.com/embed/${videoId}?enablejsapi=1`" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -70,14 +75,24 @@
   }
   .modal-header {
     position: absolute;
-    top: 1rem;
-    right: 2rem;
+    top: 1.5rem;
+    right: 2.375rem;
     z-index: 9999;
     overflow: hidden;
     border: none;
 
+    @media screen and (min-width: 600px) and (max-width: 1200px) {
+      display: none;
+    }
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
+
     .close {
       color: #ffffff;
+      background-color: unset;
+      font-size: 2.5rem;
+      border: unset;
       opacity: 1;
 
       &:focus {

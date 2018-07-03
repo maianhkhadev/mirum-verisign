@@ -14,24 +14,23 @@ const mutations = {
   setSuffixes (state, { suffixes }) {
     state.suffixes = suffixes
   },
-  setSegments (state, { names, domains }) {
+  setSegments (state, { names }) {
     let segments = new Array()
+    
     names.forEach(function (name) {
       segments.push({
         name: name,
         domains: []
       })
     })
-    domains.forEach(function (domain) {
-      let segment = segments[domain.position]
-      if(segment.domains.length < 6)
-        segments[domain.position].domains.push(domain)
-    })
 
-    state.segments = []
-    segments.forEach(function (segment) {
-      if(segment.domains.length > 0)
-        state.segments.push(segment)
+    state.segments = segments
+  },
+  allocationDomains (state, { domains }) {
+
+    domains.forEach(function (domain) {
+      let segment = state.segments[domain.position]
+      segment.domains.push(domain)
     })
   }
 }

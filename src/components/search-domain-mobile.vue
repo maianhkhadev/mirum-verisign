@@ -4,7 +4,7 @@
       <div class="title">Tìm cho mình một tên miền .com tại đây</div>
 
       <div class="form-group">
-        <input type="text" class="form-control" v-on:keyup.enter="searchDomain" v-model.lazy="name" placeholder="Ví dụ: nguyenduflower">
+        <input ref="field" type="text" class="form-control" v-model="name" placeholder="Ví dụ: nguyenduflower">
         <span class="load" v-if="searchStatus === 1">
           <img class="icon" src="~@/assets/images/icon-load.png" alt=""/>
         </span>
@@ -18,50 +18,52 @@
       </div>
     </div>
 
-    <div class="block-content" v-if="searchStatus === 2">
-      <div class="domain-searched">
-        <div v-if="domainSearched.availability === 'available'">
-          <div class="message">&#10003; Xin chúc mừng! Tên miền của bạn khả dụng!</div>
-          <button class="btn btn-blue">Đăng ký ngay</button>
+    <transition name="fade">
+      <div class="block-content" v-if="searchStatus === 2">
+        <div class="domain-searched">
+          <div v-if="domainSearched.availability === 'available'">
+            <div class="message">&#10003; Xin chúc mừng! Tên miền của bạn khả dụng!</div>
+            <a class="btn btn-blue" href="http://demo9.sofresh.ca/" target="_blank">Đăng ký ngay</a>
+          </div>
+          <div v-else>
+            <div class="message">&#10007; Tên miền không khả dụng</div>
+          </div>
         </div>
-        <div v-else>
-          <div class="message">&#10007; Tên miền không khả dụng</div>
-        </div>
-      </div>
 
-      <div class="notice">Mẹo: thêm từ màu xanh bên dưới để có tên miền khả dụng.</div>
+        <div class="notice">Mẹo: thêm từ màu xanh bên dưới để có tên miền khả dụng.</div>
 
-      <div class="line">
-        <div class="line-header">Thêm tiền tố</div>
-        <div class="line-content">
-          <template v-for="domain in prefixes">
-            <span class="word" v-bind:class="{ 'available': domain.availability === 'available' }" v-bind:key="domain.name" v-on:click="selectDomain(domain)">{{ domain.token }}</span>
-          </template>
+        <div class="line">
+          <div class="line-header">Thêm tiền tố</div>
+          <div class="line-content">
+            <template v-for="domain in prefixes">
+              <span class="word" v-bind:class="{ 'available': domain.availability === 'available' }" v-bind:key="domain.name" v-on:click="selectDomain(domain)">{{ domain.token }}</span>
+            </template>
+          </div>
+        </div>
+        <div class="segments">
+          <div class="segment" v-for="segment in segments" v-bind:key="segment.name">
+            <a class="remove" href="#">
+              <img class="icon" src="~@/assets/images/icon-remove.png" alt=""/>
+            </a>
+            <span class="name">{{ segment.name }}</span>
+            <button class="btn btn-outline-blue" v-on:click="selectSegment(segment)">Thay thế</button>
+          </div>
+        </div>
+        <div class="line">
+          <div class="line-header">Thêm hậu tố</div>
+          <div class="line-content">
+            <template v-for="domain in suffixes">
+              <span class="word" v-bind:class="{ 'available': domain.availability === 'available' }" v-bind:key="domain.name" v-on:click="selectDomain(domain)">{{ domain.token }}</span>
+            </template>
+          </div>
         </div>
       </div>
-      <div class="segments">
-        <div class="segment" v-for="segment in segments" v-bind:key="segment.name">
-          <a class="remove" href="#">
-            <img class="icon" src="~@/assets/images/icon-remove.png" alt=""/>
-          </a>
-          <span class="name">{{ segment.name }}</span>
-          <button class="btn btn-outline-blue" v-on:click="selectSegment(segment)">Thay thế</button>
-        </div>
-      </div>
-      <div class="line">
-        <div class="line-header">Thêm hậu tố</div>
-        <div class="line-content">
-          <template v-for="domain in suffixes">
-            <span class="word" v-bind:class="{ 'available': domain.availability === 'available' }" v-bind:key="domain.name" v-on:click="selectDomain(domain)">{{ domain.token }}</span>
-          </template>
-        </div>
-      </div>
-    </div>
+    </transition>
 
     <div class="modal-sort">
       <div class="modal-header">
         <div class="title">Thay thế từ khóa</div>
-        <img class="close" src="~@/assets/images/icon-remove.png" alt="" v-on:click="showModal"/>
+        <img class="close" src="~@/assets/images/icon-remove.png" alt="" v-on:click="hideModal"/>
       </div>
       <div class="modal-content">
         <ul>
@@ -138,6 +140,8 @@
 
         self.segmentSelected = { ...self.segmentSelected, ...segment }
 
+        document.querySelector('body').classList.add('no-scroll')
+
         let modal = document.querySelector('.modal-sort')
         modal.classList.add('show')
       },
@@ -148,18 +152,41 @@
 
         setTimeout(function () { self.searchDomain() }, 250)
 
-        let modal = document.querySelector('.modal-sort')
-        modal.classList.remove('show')
+        self.hideModal()
       },
       removeSearch: function () {
         let self = this
 
         self.name = ''
       },
-      showModal: function () {
-        let block = document.querySelector('.modal-sort')
-        block.classList.toggle('show')
+      hideModal: function () {
+        let self = this
+
+        document.querySelector('body').classList.remove('no-scroll')
+
+        let modal = document.querySelector('.modal-sort')
+        modal.classList.remove('show')
       }
+    },
+    mounted () {
+      let self = this
+
+      self.$refs.field.addEventListener('keypress', function (e) {
+        var charCode = !e.charCode ? e.which : e.charCode;
+
+        if(charCode === 13) {
+          self.searchDomain()
+          return true
+        }
+
+        if(charCode === 45 || (charCode > 47 && charCode < 58) || (charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123)) {
+          return true
+        }
+
+        e.preventDefault()
+        return false
+
+      })
     }
   }
 </script>
@@ -294,7 +321,7 @@
           }
         }
 
-        button {
+        a {
           font-size: 1.125rem;
           font-weight: 700;
           border-radius: 2rem;
@@ -347,7 +374,7 @@
       }
 
       .segments {
-        margin-top: 1.5rem;
+        margin-top: 1.75rem;
         margin-bottom: 1.5rem;
 
         .segment {
@@ -425,6 +452,7 @@
         right: 1rem;
         width: 1rem;
         transform: translateY(-50%);
+        padding: unset;
       }
     }
     .modal-content {

@@ -4,7 +4,7 @@
       <div class="title">Tìm cho mình một tên miền .com tại đây</div>
 
       <div class="form-group">
-        <input type="text" class="form-control" v-on:keyup.enter="searchDomain" v-model.lazy="name" placeholder="Ví dụ: nguyenduflower">
+        <input ref="field" type="text" class="form-control" v-model="name" placeholder="Ví dụ: nguyenduflower">
         <span class="load" v-if="searchStatus === 1">
           <img class="icon" src="~@/assets/images/icon-load.png" alt=""/>
         </span>
@@ -18,48 +18,53 @@
       </div>
     </div>
 
-    <div class="block-content" v-if="searchStatus === 2">
-      <div class="domain-searched">
-        <div v-if="domainSearched.availability === 'available'">
-          <span class="message">&#10003; Xin chúc mừng! Tên miền của bạn khả dụng!</span> <button class="btn btn-blue">Đăng ký ngay</button>
-        </div>
-        <div v-else>
-          <span class="message">&#10007; Tên miền không khả dụng</span>
-        </div>
-      </div>
-      <div class="notice">Mẹo: thêm từ màu xanh bên dưới để có tên miền khả dụng.</div>
-      <div class="columns">
-        <div class="column first-column">
-          <div class="column-header">Thêm tiền tố</div>
-          <div class="column-content">
-            <template v-for="domain in prefixes">
-              <div class="word" v-bind:class="{ 'available': domain.availability === 'available' }" v-bind:key="domain.name" v-on:click="selectDomain(domain)">{{ domain.token }}</div>
-            </template>
+    <transition name="fade">
+      <div class="block-content" v-if="searchStatus === 2">
+        <div class="domain-searched">
+          <div v-if="domainSearched.availability === 'available'">
+            <span class="message">&#10003; Xin chúc mừng! Tên miền của bạn khả dụng!</span>
+            <a class="btn btn-blue" href="http://demo9.sofresh.ca/" target="_blank">Đăng ký ngay</a>
+          </div>
+          <div v-else>
+            <span class="message">&#10007; Tên miền không khả dụng</span>
           </div>
         </div>
-        <div class="column middle-column">
-          <div class="column" v-for="segment in segments" v-bind:key="segment.name">
-            <div class="column-header">
-              {{ segment.name }}
-              <a class="delete" href="#">Xoá</a>
-            </div>
+        <div class="notice">Mẹo: thêm từ màu xanh bên dưới để có tên miền khả dụng.</div>
+        <div class="columns">
+          <div class="column first-column">
+            <div class="column-header">Thêm tiền tố</div>
             <div class="column-content">
-              <template v-for="domain in segment.domains">
+              <template v-for="domain in prefixes">
+                <div class="word" v-bind:class="{ 'available': domain.availability === 'available' }" v-bind:key="domain.name" v-on:click="selectDomain(domain)">{{ domain.token }}</div>
+              </template>
+            </div>
+          </div>
+          <div class="column middle-column">
+            <template v-for="segment in segments">
+              <div class="column" :class="{ 'w-100': segments.length === 1 }" :key="segment.name">
+                <div class="column-header">
+                  {{ segment.name }}
+                  <a class="delete" href="#">Xoá</a>
+                </div>
+                <div class="column-content">
+                  <template v-for="domain in segment.domains">
+                    <div class="word" v-bind:class="{ 'available': domain.availability === 'available' }" v-bind:key="domain.name" v-on:click="selectDomain(domain)">{{ domain.token }}</div>
+                  </template>
+                </div>
+              </div>
+            </template>
+          </div>
+          <div class="column last-column">
+            <div class="column-header">Thêm hậu tố</div>
+            <div class="column-content">
+              <template v-for="domain in suffixes">
                 <div class="word" v-bind:class="{ 'available': domain.availability === 'available' }" v-bind:key="domain.name" v-on:click="selectDomain(domain)">{{ domain.token }}</div>
               </template>
             </div>
           </div>
         </div>
-        <div class="column last-column">
-          <div class="column-header">Thêm hậu tố</div>
-          <div class="column-content">
-            <template v-for="domain in suffixes">
-              <div class="word" v-bind:class="{ 'available': domain.availability === 'available' }" v-bind:key="domain.name" v-on:click="selectDomain(domain)">{{ domain.token }}</div>
-            </template>
-          </div>
-        </div>
       </div>
-    </div>
+    </transition>
   </div>
 </template>
 
@@ -130,6 +135,26 @@ export default {
 
       self.name = ''
     }
+  },
+  mounted () {
+    let self = this
+
+    self.$refs.field.addEventListener('keypress', function (e) {
+      var charCode = !e.charCode ? e.which : e.charCode;
+
+      if(charCode === 13) {
+        self.searchDomain()
+        return true
+      }
+
+      if(charCode === 45 || (charCode > 47 && charCode < 58) || (charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123)) {
+        return true
+      }
+
+      e.preventDefault()
+      return false
+
+    })
   }
 }
 </script>
@@ -282,7 +307,7 @@ export default {
         }
       }
 
-      button {
+      a {
         font-size: 1.125rem;
         font-weight: 700;
         border-radius: 2rem;
@@ -331,6 +356,8 @@ export default {
           }
         }
         .column-content {
+          max-height: 19.13rem;
+          overflow-y: auto;
 
           .word {
             color: #707070;
